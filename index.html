@@ -44,23 +44,34 @@ padding-top:100px;
 }
 
 .box{
-background:#111;
-width:300px;
-margin:auto;
-padding:20px;
-border-radius:20px;
-}
+background: linear-gradient(
+-45deg,
+#000000,
+#14001f,
+#2b0040,
+#000000,
+#3b0764
+);
 
-h1{
-color:#00ffcc;
-}
-
-.info{
-font-size:22px;
-margin-top:15px;
+background-size: 400% 400%;
+animation: purpleMove 12s ease infinite;
 }
 </style>
-  
+  @keyframes purpleMove {
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
 </head>
 
 <body>
