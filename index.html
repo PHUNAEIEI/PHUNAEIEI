@@ -2,39 +2,117 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>My Profile</title>
+<title>PHUNAEIEI3 LIVE</title>
 
 <style>
-/* 🌌 พื้นหลังหลัก */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   color: white;
-  overflow: hidden;
   background: radial-gradient(circle at top, #2a004f, #000 60%);
+  overflow: hidden;
 }
 
-/* ✨ แสงฟุ้ง */
+/* แสงฟุ้ง */
 .glow {
   position: absolute;
   width: 400px;
   height: 400px;
-  background: rgba(170, 0, 255, 0.25);
+  background: rgba(170,0,255,0.25);
   filter: blur(120px);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  z-index: 0;
 }
 
-/* ⭐ ดาววิ่ง */
-.star {
-  position: absolute;
-  width: 2px;
-  height: 2px;
+/* topbar */
+.topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 55px;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo { font-weight: bold; }
+
+.menu-btn div {
+  width: 25px;
+  height: 3px;
   background: white;
-  border-radius: 50%;
+  margin: 5px 0;
+}
+
+/* card */
+.card {
+  position: relative;
+  margin-top: 25vh;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background: rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(160,0,255,0.3);
+}
+
+h2 {
+  color: #ff4dff;
+  font-size: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="glow"></div>
+
+<div class="topbar">
+  <div class="logo">@phunaeiei3 LIVE</div>
+  <div class="menu-btn">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h1>TikTok Followers</h1>
+  <h2 id="count">Loading...</h2>
+</div>
+
+<script>
+let username = "phunaeiei3";
+
+/* 🔥 ดึง follower สด */
+async function loadFollowers() {
+  try {
+    let res = await fetch("https://countik.com/api/tiktok/user?username=" + username);
+    let data = await res.json();
+
+    document.getElementById("count").innerText =
+      data.followers.toLocaleString();
+
+  } catch (e) {
+    document.getElementById("count").innerText = "โหลดไม่ได้ชั่วคราว";
+  }
+}
+
+loadFollowers();
+setInterval(loadFollowers, 5000);
+</script>
+
+</body>
+</html>  border-radius: 50%;
   opacity: 0.8;
   animation: fall linear infinite;
 }
