@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TikTok Live Followers</title>
+    <title>TikTok UI Dashboard</title>
     <style>
+        /* ตั้งค่าพื้นหลัง ม่วง-ดำ */
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
             font-family: 'Arial', sans-serif;
-            background: radial-gradient(circle at center, #2a004f, #000);
+            background: radial-gradient(circle at center, #1a0033 0%, #000000 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,66 +20,83 @@
             color: white;
         }
 
+        /* ปุ่มเมนู 3 ขีด มุมบนซ้าย */
+        .menu-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            z-index: 10;
+            padding: 10px;
+        }
+
+        .menu-btn div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* แสงฟุ้งๆ ด้านหลัง */
         .glow {
             position: absolute;
-            width: 500px;
-            height: 500px;
-            background: rgba(170, 0, 255, 0.2);
-            filter: blur(120px);
+            width: 450px;
+            height: 450px;
+            background: rgba(138, 43, 226, 0.2);
+            filter: blur(100px);
             border-radius: 50%;
             z-index: 0;
         }
 
+        /* การ์ดแสดงผล */
         .card {
             position: relative;
             z-index: 1;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            padding: 40px;
-            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 50px 40px;
+            border-radius: 25px;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 40px rgba(160, 0, 255, 0.2);
-            width: 280px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            width: 260px;
         }
 
         h1 {
-            font-size: 22px;
+            font-size: 18px;
+            letter-spacing: 1px;
             margin-bottom: 10px;
-            opacity: 0.8;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
         }
 
-        h2 {
-            font-size: 60px;
+        /* เลขผู้ติดตาม (แก้เลขตรงนี้ได้เลย) */
+        .number {
+            font-size: 72px;
+            font-weight: bold;
+            color: #ff4dff; /* สีชมพูม่วงนีออน */
             margin: 0;
-            color: #ff4dff;
-            text-shadow: 0 0 20px rgba(255, 77, 255, 0.6);
+            text-shadow: 0 0 20px rgba(255, 77, 255, 0.5);
         }
     </style>
 </head>
 <body>
 
+    <div class="menu-btn" onclick="alert('Menu Clicked!')">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
     <div class="glow"></div>
 
     <div class="card">
-        <h1>TikTok Followers</h1>
-        <h2 id="count">0</h2>
+        <h1>Followers</h1>
+        <p class="number">1,234</p>
     </div>
-
-    <script>
-        let countEl = document.getElementById("count");
-        let fake = 1234;
-
-        function update() {
-            // สุ่มเพิ่มตัวเลขให้ดูมีการเคลื่อนไหว
-            fake += Math.floor(Math.random() * 2);
-            countEl.innerText = fake.toLocaleString();
-        }
-
-        update();
-        setInterval(update, 2000);
-    </script>
 
 </body>
 </html>
