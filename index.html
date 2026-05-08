@@ -1,229 +1,84 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TikTok Live Followers - Dark Mode</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Live Followers</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            background: radial-gradient(circle at center, #2a004f, #000);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: white;
+        }
 
-<style>
-  /* การตั้งค่าพื้นฐาน */
-  body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* ฟอนต์ที่ดูทันสมัย */
-    color: white;
-    /* พื้นหลังไล่ระดับสีม่วงดำแบบ Radial */
-    background: radial-gradient(circle at center, #1a0033 0%, #000000 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* ป้องกันแถบเลื่อน */
-  }
+        .glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(170, 0, 255, 0.2);
+            filter: blur(120px);
+            border-radius: 50%;
+            z-index: 0;
+        }
 
-  /* แสงเรืองแสงสีม่วงพื้นหลัง */
-  .purple-glow {
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background: rgba(170, 0, 255, 0.3); /* สีม่วงโปร่งแสง */
-    filter: blur(150px); /* ทำให้ฟุ้ง */
-    border-radius: 50%;
-    z-index: 0; /* ให้อยู่ข้างหลังการ์ด */
-  }
+        .card {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(160, 0, 255, 0.2);
+            width: 280px;
+        }
 
-  /* การ์ดสไตล์กระจก (Glassmorphism) */
-  .counter-card {
-    position: relative;
-    z-index: 1; /* ให้อยู่ข้างหน้าแสง */
-    background: rgba(255, 255, 255, 0.05); /* พื้นหลังกระจกโปร่งแสง */
-    backdrop-filter: blur(15px); /* เอฟเฟกต์เบลอ */
-    -webkit-backdrop-filter: blur(15px); /* สำหรับ Safari */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* ขอบกระจกบางๆ */
-    border-radius: 20px;
-    padding: 40px 60px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* เงาใต้การ์ด */
-    width: 320px;
-  }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
 
-  /* หัวข้อ */
-  .title {
-    font-size: 24px;
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 20px;
-    font-weight: 500;
-  }
-
-  /* ตัวเลขผู้ติดตาม */
-  .count {
-    font-size: 64px;
-    font-weight: bold;
-    /* สีม่วงอมชมพูนีออน */
-    color: #ff4dff;
-    margin: 0;
-    text-shadow: 0 0 15px rgba(255, 77, 255, 0.8), /* แสงนีออน */
-                 0 0 5px rgba(255, 77, 255, 0.5);
-    line-height: 1;
-  }
-
-</style>
+        h2 {
+            font-size: 60px;
+            margin: 0;
+            color: #ff4dff;
+            text-shadow: 0 0 20px rgba(255, 77, 255, 0.6);
+        }
+    </style>
 </head>
 <body>
 
-  <div class="purple-glow"></div>
+    <div class="glow"></div>
 
-  <div class="counter-card">
-    <div class="title">TikTok Followers</div>
-    <p class="count" id="count">0</p>
-  </div>
+    <div class="card">
+        <h1>TikTok Followers</h1>
+        <h2 id="count">0</h2>
+    </div>
 
-  <script>
-    /* 🔥 จำลองข้อมูลสำหรับแสดงผล (Mock Data) 🔥 */
-    // หากต้องการใช้ข้อมูลจริง ต้องมี API หรือระบบดึงข้อมูลมาแทนที่
-    let currentCount = 1234; // ยอดผู้ติดตามเริ่มต้น
-    const countElement = document.getElementById("count");
+    <script>
+        let countEl = document.getElementById("count");
+        let fake = 1234;
 
-    function updateCounter() {
-      // เพิ่มยอดผู้ติดตามแบบสุ่มเล็กน้อย (0-2 คน) ทุกครั้งที่อัปเดต
-      const increment = Math.floor(Math.random() * 3); 
-      currentCount += increment;
+        function update() {
+            // สุ่มเพิ่มตัวเลขให้ดูมีการเคลื่อนไหว
+            fake += Math.floor(Math.random() * 2);
+            countEl.innerText = fake.toLocaleString();
+        }
 
-      // แสดงผลตัวเลขพร้อมคอมมา (e.g., 1,234)
-      countElement.innerText = currentCount.toLocaleString('th-TH');
-    }
-
-    // เรียกใช้งานครั้งแรกทันที
-    updateCounter();
-
-    // ตั้งเวลาให้อัปเดตทุกๆ 2000 มิลลิวินาที (2 วินาที)
-    setInterval(updateCounter, 2000);
-  </script>
+        update();
+        setInterval(update, 2000);
+    </script>
 
 </body>
 </html>
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 25px rgba(160,0,255,0.3);
-}
-
-h2 {
-  color: #ff4dff;
-  font-size: 40px;
-}
-</style>
-</head>
-
-<body>
-
-<div class="glow"></div>
-
-<div class="card">
-  <h1>TikTok Followers</h1>
-  <h2 id="count">0</h2>
-</div>
-
-<script>
-let countEl = document.getElementById("count");
-
-/* 🔥 MOCK DATA (กันเว็บขาว) */
-let fake = 1234;
-
-function update() {
-  // จำลอง live counter (ไม่พังแน่นอน)
-  fake += Math.floor(Math.random() * 3);
-  countEl.innerText = fake.toLocaleString();
-}
-
-update();
-setInterval(update, 2000);
-</script>
-
-</body>
-</html>  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 15px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.logo { font-weight: bold; }
-
-.menu-btn div {
-  width: 25px;
-  height: 3px;
-  background: white;
-  margin: 5px 0;
-}
-
-/* card */
-.card {
-  position: relative;
-  margin-top: 25vh;
-  width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  background: rgba(255,255,255,0.05);
-  padding: 30px;
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 25px rgba(160,0,255,0.3);
-}
-
-h2 {
-  color: #ff4dff;
-  font-size: 40px;
-}
-</style>
-</head>
-
-<body>
-
-<div class="glow"></div>
-
-<div class="topbar">
-  <div class="logo">@phunaeiei3 LIVE</div>
-  <div class="menu-btn">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-</div>
-
-<div class="card">
-  <h1>TikTok Followers</h1>
-  <h2 id="count">Loading...</h2>
-</div>
-
-<script>
-let username = "phunaeiei3";
-
-/* 🔥 ดึง follower สด */
-async function loadFollowers() {
-  try {
-    let res = await fetch("https://countik.com/api/tiktok/user?username=" + username);
-    let data = await res.json();
-
-    document.getElementById("count").innerText =
-      data.followers.toLocaleString();
-
-  } catch (e) {
-    document.getElementById("count").innerText = "โหลดไม่ได้ชั่วคราว";
-  }
-}
-
-loadFollowers();
-setInterval(loadFollowers, 5000);
-</script>
-
-</body>
-</html>  border-radius: 50%;
-  opacity: 0.8;
-  animation: fall linear infinite;
-}
-
-@keyframes fall {
-  from { transform: translateY(-10vh); }
-  to { transform: translate
