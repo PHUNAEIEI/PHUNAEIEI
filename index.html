@@ -1,120 +1,44 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <title>Profile</title>
+<meta charset="UTF-8">
+<title>My Profile</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      background: linear-gradient(135deg, #0f0f1a, #2a0a3d, #000);
-      color: white;
-      overflow: hidden;
-    }
-
-    .container {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.08);
-      padding: 30px;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      text-align: center;
-      box-shadow: 0 0 30px rgba(160,0,255,0.3);
-    }
-
-    h1 {
-      margin: 0;
-    }
-
-    .followers {
-      font-size: 40px;
-      font-weight: bold;
-      margin-top: 10px;
-      color: #ff4dff;
-    }
-
-    /* ดาววิ่ง */
-    .star {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      background: white;
-      border-radius: 50%;
-      animation: move 6s linear infinite;
-    }
-
-    @keyframes move {
-      from { transform: translateY(100vh); }
-      to { transform: translateY(-10vh); }
-    }
-  </style>
-</head>
-
-<body>
-
-<div class="container">
-  <div class="card">
-    <h1>My Profile</h1>
-    <div>Followers</div>
-    <div class="followers" id="count">0</div>
-  </div>
-</div>
-
-<script>
-  // 🔥 ใส่ยอดฟอลตรงนี้ (แก้เองได้)
-  let followers = 1234;
-
-  // animation นับเลข
-  let current = 0;
-  let el = document.getElementById("count");
-
-  let interval = setInterval(() => {
-    current += 10;
-    el.innerText = current;
-
-    if (current >= followers) {
-      el.innerText = followers;
-      clearInterval(interval);
-    }
-  }, 10);
-
-  // ดาววิ่ง
-  for (let i = 0; i < 80; i++) {
-    let star = document.createElement("div");
-    star.className = "star";
-    star.style.left = Math.random() * 100 + "vw";
-    star.style.animationDuration = (Math.random() * 5 + 3) + "s";
-    document.body.appendChild(star);
-  }
-</script>
-
-</body>
-</html>
+<style>
+/* 🌌 พื้นหลังหลัก */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #2a004f, #000 60%);
 }
-};
 
-var firstScript = document.getElementsByTagName('script')[0];
-firstScript.parentNode.insertBefore(countikWidget, firstScript);
+/* ✨ แสงฟุ้ง */
+.glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(170, 0, 255, 0.25);
+  filter: blur(120px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 0;
+}
 
-})();
-</scPHUNA
-<div class="info">
-Donate: 3,290฿
-</div>
+/* ⭐ ดาววิ่ง */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
 
-<div class="info">
-ONLINE
-</div>
-
-</div>
-
-</body>
-</html>
+@keyframes fall {
+  from { transform: translateY(-10vh); }
+  to { transform: translate
