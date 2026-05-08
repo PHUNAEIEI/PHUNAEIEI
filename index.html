@@ -34,15 +34,34 @@ margin-top:15px;
 <body>
 
 <div class="box">
-<h1>PHUNA</h1>
+<h1>PHUNAEIEI</h1>
 
-<iframe 
-height="80" 
-width="300" 
-frameborder="0" 
-src="https://livecounts.io/embed/tiktok-live-follower-counter/phunaeiei3">
-</iframe>
+<div id="countik-widget"></div>
 
+<script>
+(function() {
+var countikWidget = document.createElement('script');
+countikWidget.src = 'https://countik.com/widget.js';
+countikWidget.async = true;
+
+countikWidget.onload = function() {
+if (typeof window.initializeCountikWidget === 'function') {
+
+window.initializeCountikWidget({
+container: '#countik-widget',
+themeColor: '#00ffcc',
+uniqueId: 'phunaeiei3',
+language: 'en'
+});
+
+}
+};
+
+var firstScript = document.getElementsByTagName('script')[0];
+firstScript.parentNode.insertBefore(countikWidget, firstScript);
+
+})();
+</scPHUNA
 <div class="info">
 Donate: 3,290฿
 </div>
