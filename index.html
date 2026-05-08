@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TikTok UI Dashboard</title>
+    <title>TikTok Dashboard Horizontal</title>
     <style>
-        /* ตั้งค่าพื้นหลัง ม่วง-ดำ */
         body, html {
             margin: 0;
             padding: 0;
@@ -20,83 +19,26 @@
             color: white;
         }
 
-        /* ปุ่มเมนู 3 ขีด มุมบนซ้าย */
+        /* เมนู 3 ขีด เล็กเรียวยาวเท่ากัน */
         .menu-btn {
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 25px;
+            left: 25px;
             cursor: pointer;
             z-index: 10;
-            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
 
         .menu-btn div {
-            width: 25px;
-            height: 3px;
+            width: 22px;
+            height: 2px;
             background-color: white;
-            margin: 5px 0;
-            border-radius: 2px;
-            transition: 0.3s;
+            border-radius: 10px;
         }
 
-        /* แสงฟุ้งๆ ด้านหลัง */
         .glow {
             position: absolute;
-            width: 450px;
-            height: 450px;
-            background: rgba(138, 43, 226, 0.2);
-            filter: blur(100px);
-            border-radius: 50%;
-            z-index: 0;
-        }
-
-        /* การ์ดแสดงผล */
-        .card {
-            position: relative;
-            z-index: 1;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 50px 40px;
-            border-radius: 25px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-            width: 260px;
-        }
-
-        h1 {
-            font-size: 18px;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            color: rgba(255, 255, 255, 0.6);
-            text-transform: uppercase;
-        }
-
-        /* เลขผู้ติดตาม (แก้เลขตรงนี้ได้เลย) */
-        .number {
-            font-size: 72px;
-            font-weight: bold;
-            color: #ff4dff; /* สีชมพูม่วงนีออน */
-            margin: 0;
-            text-shadow: 0 0 20px rgba(255, 77, 255, 0.5);
-        }
-    </style>
-</head>
-<body>
-
-    <div class="menu-btn" onclick="alert('Menu Clicked!')">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-
-    <div class="glow"></div>
-
-    <div class="card">
-        <h1>Followers</h1>
-        <p class="number">1,234</p>
-    </div>
-
-</body>
-</html>
+            width: 500px;
+            
