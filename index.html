@@ -25,7 +25,6 @@ overflow-x:hidden;
 }
 
 /* NAVBAR */
-
 .navbar{
 position:fixed;
 top:0;
@@ -86,7 +85,6 @@ box-shadow:0 0 15px #8b2cff;
 }
 
 /* HERO */
-
 .hero{
 height:100vh;
 background:
@@ -146,7 +144,6 @@ font-weight:600;
 border-radius:18px;
 background:#8b2cff;
 border:1px solid #c084ff;
-box-shadow:0 0 20px rgba(139,44,255,0.5);
 transition:0.3s;
 }
 
@@ -155,8 +152,7 @@ transform:scale(1.05);
 background:#a855f7;
 }
 
-/* SECTION */
-
+/* SECTION TITLE */
 .section-title{
 font-family:'Orbitron',sans-serif;
 font-size:42px;
@@ -167,7 +163,6 @@ text-shadow:0 0 10px #8b2cff;
 }
 
 /* STATS */
-
 .stats{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -182,7 +177,6 @@ padding:35px;
 border-radius:24px;
 text-align:center;
 box-shadow:0 0 20px rgba(139,44,255,0.2);
-transition:0.3s;
 }
 
 .stat-box:hover{
@@ -201,14 +195,12 @@ font-family:'Orbitron',sans-serif;
 color:#d9b3ff;
 }
 
-/* VIDEO SLIDER */
-
+/* VIDEOS */
 .slider{
 display:flex;
 gap:25px;
 overflow-x:auto;
 padding:20px 30px 50px;
-scroll-behavior:smooth;
 }
 
 .video-card{
@@ -218,7 +210,6 @@ border-radius:24px;
 overflow:hidden;
 border:1px solid #8b2cff;
 flex-shrink:0;
-transition:0.3s;
 }
 
 .video-card:hover{
@@ -236,8 +227,17 @@ object-fit:cover;
 padding:20px;
 }
 
-/* CHALLENGE */
+.watch-btn{
+display:inline-block;
+margin-top:18px;
+padding:12px 20px;
+background:#8b2cff;
+color:white;
+text-decoration:none;
+border-radius:12px;
+}
 
+/* CHALLENGE */
 .challenge{
 margin:40px 30px;
 background:#0d0018;
@@ -245,11 +245,24 @@ padding:45px;
 border-radius:30px;
 border:1px solid #8b2cff;
 text-align:center;
-box-shadow:0 0 20px rgba(139,44,255,0.2);
+}
+
+.bar{
+width:100%;
+height:28px;
+background:#2a1240;
+border-radius:30px;
+margin-top:25px;
+overflow:hidden;
+}
+
+.progress{
+width:72%;
+height:100%;
+background:linear-gradient(to right,#8b2cff,#d946ef);
 }
 
 /* FOOTER */
-
 footer{
 margin-top:70px;
 padding:50px 20px;
@@ -279,7 +292,6 @@ background:#090012;
 <a href="#videos">VIDEOS</a>
 <a href="#challenge">CHALLENGE</a>
 </div>
-
 </div>
 
 <!-- HERO -->
@@ -296,6 +308,79 @@ background:#090012;
 </div>
 
 </section>
+
+<!-- STATS -->
+<h2 class="section-title" id="stats">STATS</h2>
+
+<div class="stats">
+
+<div class="stat-box">
+<h3>FOLLOWERS</h3>
+<p>120K</p>
+</div>
+
+<div class="stat-box">
+<h3>VIDEOS</h3>
+<p>157</p>
+</div>
+
+<div class="stat-box">
+<h3>TOTAL VIEWS</h3>
+<p>9.4M</p>
+</div>
+
+</div>
+
+<!-- VIDEOS -->
+<h2 class="section-title" id="videos">LATEST VIDEOS</h2>
+
+<div class="slider">
+
+<div class="video-card">
+<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e">
+<div class="video-content">
+<h3>1 DAY 1 MOD</h3>
+<p>Minecraft Bedrock Review</p>
+<a href="#" class="watch-btn">WATCH</a>
+</div>
+</div>
+
+<div class="video-card">
+<img src="https://images.unsplash.com/photo-1511512578047-dfb367046420">
+<div class="video-content">
+<h3>HORROR MOD</h3>
+<p>100 Days Survival</p>
+<a href="#" class="watch-btn">WATCH</a>
+</div>
+</div>
+
+</div>
+
+<!-- CHALLENGE -->
+<div class="challenge" id="challenge">
+
+<h2>7 DAYS STREAMING</h2>
+<p>Goal : 100K Followers</p>
+
+<div class="bar">
+<div class="progress"></div>
+</div>
+
+<p style="margin-top:20px;">72%</p>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+
+<p>TikTok : @phunaeiei3</p>
+<p>YouTube : PHUNAEIEI</p>
+<p>Discord : Coming Soon</p>
+
+<br>
+<p>© PHUNAEIEI 2026</p>
+
+</footer>
 
 </body>
 </html>
