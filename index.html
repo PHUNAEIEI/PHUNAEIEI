@@ -25,7 +25,7 @@ font-family:'Poppins',sans-serif;
 overflow-x:hidden;
 }
 
-/* ================= SPACE BACKGROUND ================= */
+/* ================= SPACE BG ================= */
 
 .space-bg{
 position:fixed;
@@ -40,7 +40,7 @@ background:
 radial-gradient(circle at top,#2d0050 0%,#12001f 35%,#05010b 100%);
 }
 
-/* GLOW */
+/* ================= PURPLE GLOW ================= */
 
 .glow{
 position:absolute;
@@ -100,72 +100,107 @@ transform:translate(0,0) scale(1);
 
 }
 
-/* ================= SHOOTING STAR ================= */
+/* ================= BLACK HOLE ================= */
 
-.shooting-star{
+.black-hole{
 position:absolute;
-width:160px;
-height:2px;
 
-background:linear-gradient(
-90deg,
-rgba(255,255,255,1),
-rgba(255,255,255,0)
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+width:220px;
+height:220px;
+
+border-radius:50%;
+
+background:radial-gradient(
+circle,
+#000 25%,
+#12001f 45%,
+#6d28ff 70%,
+transparent 100%
 );
 
-border-radius:999px;
+box-shadow:
+0 0 40px #6d28ff,
+0 0 100px rgba(139,44,255,0.5);
 
-opacity:0;
+animation:spin 18s linear infinite;
 
-transform:rotate(-35deg);
-
-animation:shoot 7s linear infinite;
+opacity:0.45;
 }
 
-.s1{
-top:10%;
-left:-20%;
-animation-delay:0s;
+/* OUTER RING */
+
+.black-hole::before{
+content:'';
+
+position:absolute;
+
+top:-18px;
+left:-18px;
+
+width:256px;
+height:256px;
+
+border-radius:50%;
+
+border:3px solid rgba(180,120,255,0.25);
+
+filter:blur(2px);
+
+animation:spinReverse 12s linear infinite;
 }
 
-.s2{
-top:30%;
-left:-30%;
-animation-delay:3s;
+/* INNER GLOW */
+
+.black-hole::after{
+content:'';
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+width:70px;
+height:70px;
+
+border-radius:50%;
+
+background:#000;
+
+box-shadow:
+0 0 30px #8b2cff,
+0 0 60px #b86cff;
+
 }
 
-.s3{
-top:55%;
-left:-25%;
-animation-delay:6s;
+/* ANIMATION */
+
+@keyframes spin{
+
+from{
+transform:translate(-50%,-50%) rotate(0deg);
 }
 
-@keyframes shoot{
-
-0%{
-transform:
-translateX(0)
-translateY(0)
-rotate(-35deg);
-
-opacity:0;
+to{
+transform:translate(-50%,-50%) rotate(360deg);
 }
 
-8%{
-opacity:1;
 }
 
-20%{
-transform:
-translateX(130vw)
-translateY(60vh)
-rotate(-35deg);
+@keyframes spinReverse{
 
-opacity:0;
+from{
+transform:rotate(360deg);
 }
 
-100%{
-opacity:0;
+to{
+transform:rotate(0deg);
 }
 
 }
@@ -188,9 +223,11 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
+
 display:flex;
 justify-content:space-between;
 align-items:center;
+
 padding:10px 15px;
 
 background:rgba(0,0,0,0.45);
@@ -304,7 +341,7 @@ font-size:32px;
 cursor:pointer;
 }
 
-/* TITLE */
+/* MENU TITLE */
 
 .menu-title{
 font-family:'Orbitron';
@@ -313,7 +350,7 @@ letter-spacing:4px;
 margin-bottom:25px;
 }
 
-/* GRID */
+/* MENU GRID */
 
 .menu-grid{
 display:grid;
@@ -321,7 +358,7 @@ grid-template-columns:1fr 1fr;
 gap:16px;
 }
 
-/* CARD */
+/* MENU CARD */
 
 .menu-card{
 height:120px;
@@ -358,7 +395,7 @@ letter-spacing:2px;
 font-weight:600;
 }
 
-/* FOOTER */
+/* MENU FOOTER */
 
 .menu-footer{
 margin-top:auto;
@@ -531,7 +568,7 @@ border-left:16px solid #b86cff;
 margin-left:4px;
 }
 
-/* VIEWS */
+/* VIEW */
 
 .views-ui::before{
 content:'';
@@ -589,7 +626,7 @@ font-size:30px;
 font-family:'Orbitron';
 }
 
-/* ================= BOXES ================= */
+/* ================= SUPPORT BOX ================= */
 
 .support-box,
 .goal-box,
@@ -646,7 +683,7 @@ font-weight:700;
 box-shadow:0 0 20px rgba(139,44,255,0.5);
 }
 
-/* MINI BOX */
+/* DONATE MINI */
 
 .donate-links{
 display:flex;
@@ -819,9 +856,7 @@ width:0;
 <div class="glow glow2"></div>
 <div class="glow glow3"></div>
 
-<div class="shooting-star s1"></div>
-<div class="shooting-star s2"></div>
-<div class="shooting-star s3"></div>
+<div class="black-hole"></div>
 
 </div>
 
@@ -881,12 +916,9 @@ MENU
 <span>STATS</span>
 </a>
 
-<a href="https://ezdn.app/phunaeiei77"
-class="menu-card">
-
+<a href="https://ezdn.app/phunaeiei77" class="menu-card">
 <div class="menu-icon">❤</div>
 <span>DONATE</span>
-
 </a>
 
 <a href="#" class="menu-card">
@@ -1170,11 +1202,9 @@ let stars=[];
 for(let i=0;i<120;i++){
 
 stars.push({
-
 x:Math.random()*c.width,
 y:Math.random()*c.height,
 r:Math.random()*1.5
-
 });
 
 }
