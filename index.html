@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>PHUNAEIEI</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -15,7 +14,6 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-scroll-behavior:smooth;
 }
 
 body{
@@ -25,29 +23,24 @@ font-family:'Poppins',sans-serif;
 overflow-x:hidden;
 }
 
-/* 🌌 STAR */
+/* STAR */
 #stars{
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+top:0;left:0;
+width:100%;height:100%;
 z-index:-1;
-pointer-events:none;
 }
 
 /* NAV */
 .navbar{
 position:fixed;
-top:0;
-left:0;
+top:0;left:0;
 width:100%;
-padding:10px 15px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+padding:10px 15px;
 background:rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
 border-bottom:1px solid #8b2cff;
 z-index:9999;
 }
@@ -64,44 +57,31 @@ height:38px;
 display:flex;
 align-items:center;
 justify-content:center;
-border-radius:10px;
-border:2px solid #8b2cff;
-box-shadow:0 0 10px #8b2cff;
 background:#140022;
-font-family:'Orbitron';
-font-size:16px;
+border:2px solid #8b2cff;
+border-radius:10px;
+font-family:Orbitron;
 }
 
-.nav-left h1{
-font-size:14px;
-font-family:'Orbitron';
-opacity:0.9;
-}
-
-/* ☰ MENU BUTTON (FIXED) */
 .menu-toggle{
 font-size:30px;
 cursor:pointer;
-user-select:none;
+z-index:10000;
 position:relative;
-z-index:10010;
-color:white;
 }
 
 /* OVERLAY */
 .overlay{
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+top:0;left:0;
+width:100%;height:100%;
 background:rgba(0,0,0,0.5);
 display:none;
 z-index:9998;
 }
 .overlay.active{display:block;}
 
-/* SIDE MENU */
+/* MENU */
 .side-menu{
 position:fixed;
 top:0;
@@ -114,7 +94,7 @@ padding:20px;
 display:flex;
 flex-direction:column;
 gap:12px;
-transition:0.3s ease;
+transition:0.3s;
 z-index:9999;
 }
 .side-menu.active{right:0;}
@@ -128,6 +108,26 @@ border-radius:10px;
 border:1px solid #8b2cff;
 }
 
+/* MENU HEADER */
+.menu-header{
+text-align:center;
+font-family:Orbitron;
+color:#d9b3ff;
+border-bottom:1px solid #8b2cff;
+padding-bottom:8px;
+margin-bottom:10px;
+}
+
+/* MENU FOOTER © */
+.menu-footer{
+margin-top:auto;
+text-align:center;
+font-size:12px;
+opacity:0.7;
+border-top:1px solid #8b2cff;
+padding-top:10px;
+}
+
 /* HERO */
 .hero{
 height:100vh;
@@ -136,94 +136,43 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:0 15px;
 }
 
 .logo-big{
-width:80px;
-height:80px;
+width:85px;
+height:85px;
 display:flex;
 align-items:center;
 justify-content:center;
-border-radius:20px;
-font-size:34px;
-font-family:'Orbitron';
 background:#140022;
 border:2px solid #8b2cff;
-box-shadow:0 0 25px #8b2cff;
-margin-bottom:10px;
+border-radius:18px;
+font-family:Orbitron;
+font-size:34px;
+box-shadow:0 0 20px #8b2cff;
 }
 
 .hero h2{
-font-size:clamp(34px,8vw,72px);
-font-family:'Orbitron';
-color:#f2d4ff;
-text-shadow:0 0 10px #8b2cff;
-}
-
-.hero-sub{
-margin-top:8px;
-font-size:13px;
-opacity:0.7;
-letter-spacing:2px;
-}
-
-.hero-btns{
-margin-top:18px;
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-justify-content:center;
-}
-
-.hero-btns a{
-padding:10px 14px;
-background:#8b2cff;
-color:white;
-text-decoration:none;
-border-radius:10px;
-font-size:12px;
+font-family:Orbitron;
+font-size:clamp(28px,6vw,60px);
 }
 
 /* LIVE */
 .live-card{
-margin-top:18px;
+margin-top:15px;
 padding:8px 14px;
 border:1px solid #8b2cff;
-border-radius:12px;
-background:rgba(20,0,34,0.6);
-font-size:12px;
-display:inline-block;
-animation:glow 1.5s infinite;
-}
-
-.live-card::before{
-content:"●";
-color:red;
-margin-right:6px;
-animation:blink 1s infinite;
-}
-
-@keyframes blink{
-0%{opacity:1;}
-50%{opacity:0.2;}
-100%{opacity:1;}
-}
-
-@keyframes glow{
-0%{box-shadow:0 0 5px rgba(255,0,0,0.3);}
-50%{box-shadow:0 0 15px rgba(255,0,0,0.7);}
-100%{box-shadow:0 0 5px rgba(255,0,0,0.3);}
-}
-
-/* SECTION */
-.section-title{
-text-align:center;
-margin:50px 0 15px;
-font-family:'Orbitron';
+border-radius:10px;
+background:rgba(20,0,34,0.5);
 }
 
 /* STATS */
+.section-title{
+text-align:center;
+margin:40px 0 15px;
+font-family:Orbitron;
+}
+
 .stats{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
@@ -235,13 +184,8 @@ padding:15px;
 background:#0d0018;
 border:1px solid #8b2cff;
 padding:18px;
-border-radius:16px;
+border-radius:14px;
 text-align:center;
-}
-
-.stat-box p{
-font-size:28px;
-font-family:'Orbitron';
 }
 
 /* VIDEOS */
@@ -254,10 +198,16 @@ padding:15px;
 
 .video-card{
 min-width:220px;
-background:#0d0018;
-border:1px solid #8b2cff;
-border-radius:16px;
+border-radius:14px;
 overflow:hidden;
+border:1px solid #8b2cff;
+background:#0d0018;
+}
+
+.video-card img{
+width:100%;
+height:140px;
+object-fit:cover;
 }
 
 /* CHALLENGE */
@@ -266,16 +216,14 @@ margin:15px;
 padding:20px;
 background:#0d0018;
 border:1px solid #8b2cff;
-border-radius:16px;
-text-align:center;
+border-radius:14px;
 }
 
 .bar{
-height:18px;
+height:16px;
 background:#2a1240;
 border-radius:20px;
 overflow:hidden;
-margin-top:10px;
 }
 
 .progress{
@@ -287,9 +235,8 @@ background:#8b2cff;
 /* FOOTER */
 footer{
 text-align:center;
-padding:30px;
+padding:25px;
 border-top:1px solid #8b2cff;
-margin-top:30px;
 }
 
 </style>
@@ -297,7 +244,6 @@ margin-top:30px;
 
 <body>
 
-<!-- STAR -->
 <canvas id="stars"></canvas>
 
 <!-- NAV -->
@@ -308,7 +254,7 @@ margin-top:30px;
 <h1>PHUNAEIEI</h1>
 </div>
 
-<div class="menu-toggle" id="btn" onclick="toggleMenu()">☰</div>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
 </div>
 
@@ -318,10 +264,14 @@ margin-top:30px;
 <!-- MENU -->
 <div class="side-menu" id="menu">
 
+<div class="menu-header">MENU</div>
+
 <a href="#home">HOME</a>
 <a href="#stats">STATS</a>
 <a href="#videos">VIDEOS</a>
 <a href="#challenge">CHALLENGE</a>
+
+<div class="menu-footer">© PHUNAEIEI 2026</div>
 
 </div>
 
@@ -332,16 +282,7 @@ margin-top:30px;
 
 <h2>PHUNAEIEI</h2>
 
-<p class="hero-sub">Minecraft Creator • Mods • Live Streams</p>
-
-<div class="hero-btns">
-<a href="#videos">WATCH</a>
-<a href="#stats">STATS</a>
-</div>
-
-<div class="live-card">
-🔥 LIVE • <span id="followers">173</span> Followers
-</div>
+<div class="live-card">🔥 LIVE • 173 Followers</div>
 
 </section>
 
@@ -350,19 +291,30 @@ margin-top:30px;
 
 <div class="stats">
 
-<div class="stat-box">
-<h3>FOLLOWERS</h3>
-<p id="followers2">173</p>
-</div>
-
+<div class="stat-box"><h3>FOLLOWERS</h3><p>173</p></div>
 <div class="stat-box"><h3>VIDEOS</h3><p>6</p></div>
 <div class="stat-box"><h3>VIEWS</h3><p>10K</p></div>
 
 </div>
 
+<!-- VIDEOS -->
+<h2 class="section-title">VIDEOS</h2>
+
+<div class="slider">
+
+<div class="video-card">
+<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e">
+</div>
+
+<div class="video-card">
+<img src="https://images.unsplash.com/photo-1511512578047-dfb367046420">
+</div>
+
+</div>
+
 <!-- CHALLENGE -->
 <div class="challenge">
-<h2>7 DAYS STREAM</h2>
+<h3>7 DAYS STREAM</h3>
 <div class="bar"><div class="progress"></div></div>
 </div>
 
@@ -372,48 +324,29 @@ margin-top:30px;
 
 <script>
 
-/* MENU FIX 100% */
+/* MENU FIX */
 const menu=document.getElementById("menu");
 const overlay=document.getElementById("overlay");
-const btn=document.getElementById("btn");
 
 function toggleMenu(){
 menu.classList.toggle("active");
 overlay.classList.toggle("active");
-btn.innerHTML = menu.classList.contains("active") ? "✕" : "☰";
 }
 
 function closeMenu(){
 menu.classList.remove("active");
 overlay.classList.remove("active");
-btn.innerHTML="☰";
 }
 
-/* LIVE FOLLOWERS */
-let base = 173;
-let f = 173;
-
-setInterval(()=>{
-f += Math.floor(Math.random()*3)-1;
-
-if(f > base + 6) f = base + 6;
-if(f < base - 6) f = base - 6;
-
-document.getElementById("followers").innerText = f;
-if(document.getElementById("followers2"))
-document.getElementById("followers2").innerText = f;
-
-},800);
-
-/* STARS */
+/* STAR */
 const c=document.getElementById("stars");
 const x=c.getContext("2d");
 c.width=innerWidth;
 c.height=innerHeight;
 
 let s=[];
-for(let i=0;i<140;i++){
-s.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.8});
+for(let i=0;i<120;i++){
+s.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.5});
 }
 
 function draw(){
@@ -423,7 +356,7 @@ for(let i of s){
 x.beginPath();
 x.arc(i.x,i.y,i.r,0,Math.PI*2);
 x.fill();
-i.y+=0.8;
+i.y+=0.7;
 if(i.y>c.height)i.y=0;
 }
 requestAnimationFrame(draw);
