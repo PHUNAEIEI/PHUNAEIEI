@@ -25,7 +25,7 @@ font-family:'Poppins',sans-serif;
 overflow-x:hidden;
 }
 
-/* 🌌 STAR BACKGROUND */
+/* STAR */
 canvas{
 position:fixed;
 top:0;
@@ -72,20 +72,14 @@ background:#140022;
 color:#fff;
 }
 
-.nav-left h1{
-font-family:'Orbitron';
-font-size:18px;
-}
-
 /* ☰ */
 .menu-toggle{
 font-size:28px;
 cursor:pointer;
 z-index:10001;
-position:relative;
 }
 
-/* ================= SLIDE MENU ================= */
+/* SLIDE MENU */
 .side-menu{
 position:fixed;
 top:0;
@@ -102,6 +96,10 @@ transition:0.3s ease;
 z-index:10000;
 }
 
+.side-menu.active{
+right:0;
+}
+
 .side-menu a{
 color:white;
 text-decoration:none;
@@ -111,24 +109,24 @@ border-radius:8px;
 border:1px solid #8b2cff;
 }
 
-.side-menu.active{
-right:0;
+/* 🌟 HEADER MENU DECOR */
+.menu-header{
+font-family:'Orbitron';
+font-size:16px;
+color:#d9b3ff;
+text-align:center;
+margin-bottom:10px;
+border-bottom:1px solid #8b2cff;
+padding-bottom:10px;
 }
 
-/* overlay */
-.overlay{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.5);
-display:none;
-z-index:9999;
-}
-
-.overlay.active{
-display:block;
+.menu-footer{
+margin-top:auto;
+text-align:center;
+font-size:12px;
+opacity:0.7;
+border-top:1px solid #8b2cff;
+padding-top:10px;
 }
 
 /* HERO */
@@ -152,11 +150,15 @@ font-size:40px;
 font-family:'Orbitron';
 background:#140022;
 border:2px solid #8b2cff;
+box-shadow:0 0 25px #8b2cff;
 }
 
+/* 🔥 กลับเป็นตัวใหญ่แบบเดิม */
 .hero h2{
-font-size:60px;
+font-size:90px;
 font-family:'Orbitron';
+color:#f2d4ff;
+text-shadow:0 0 15px #8b2cff;
 }
 
 /* LIVE */
@@ -216,7 +218,7 @@ font-size:38px;
 font-family:'Orbitron';
 }
 
-/* VIDEOS */
+/* SLIDER */
 .slider{
 display:flex;
 gap:20px;
@@ -232,26 +234,6 @@ border-radius:20px;
 overflow:hidden;
 }
 
-.video-card img{
-width:100%;
-height:180px;
-object-fit:cover;
-}
-
-.video-content{
-padding:15px;
-}
-
-.watch-btn{
-display:inline-block;
-margin-top:10px;
-background:#8b2cff;
-padding:10px 14px;
-border-radius:10px;
-color:white;
-text-decoration:none;
-}
-
 /* CHALLENGE */
 .challenge{
 margin:25px;
@@ -260,20 +242,6 @@ background:#0d0018;
 border:1px solid #8b2cff;
 border-radius:20px;
 text-align:center;
-}
-
-.bar{
-height:20px;
-background:#2a1240;
-border-radius:20px;
-overflow:hidden;
-margin-top:15px;
-}
-
-.progress{
-width:72%;
-height:100%;
-background:#8b2cff;
 }
 
 /* FOOTER */
@@ -289,7 +257,6 @@ margin-top:40px;
 
 <body>
 
-<!-- 🌌 STAR -->
 <canvas id="stars"></canvas>
 
 <!-- NAV -->
@@ -305,13 +272,19 @@ margin-top:40px;
 </div>
 
 <!-- SLIDE MENU -->
-<div id="overlay" class="overlay" onclick="toggleMenu()"></div>
-
 <div id="sideMenu" class="side-menu">
-<a href="#home" onclick="toggleMenu()">HOME</a>
-<a href="#stats" onclick="toggleMenu()">STATS</a>
-<a href="#videos" onclick="toggleMenu()">VIDEOS</a>
-<a href="#challenge" onclick="toggleMenu()">CHALLENGE</a>
+
+<div class="menu-header">MENU</div>
+
+<a href="#home">HOME</a>
+<a href="#stats">STATS</a>
+<a href="#videos">VIDEOS</a>
+<a href="#challenge">CHALLENGE</a>
+
+<div class="menu-footer">
+© PHUNAEIEI 2026
+</div>
+
 </div>
 
 <!-- HERO -->
@@ -345,33 +318,9 @@ margin-top:40px;
 
 </div>
 
-<!-- VIDEOS -->
-<h2 class="section-title">VIDEOS</h2>
-
-<div class="slider">
-
-<div class="video-card">
-<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e">
-<div class="video-content">
-<h3>MOD 1</h3>
-<a class="watch-btn">WATCH</a>
-</div>
-</div>
-
-<div class="video-card">
-<img src="https://images.unsplash.com/photo-1511512578047-dfb367046420">
-<div class="video-content">
-<h3>MOD 2</h3>
-<a class="watch-btn">WATCH</a>
-</div>
-</div>
-
-</div>
-
 <!-- CHALLENGE -->
 <div class="challenge">
 <h2>7 DAYS STREAM</h2>
-<div class="bar"><div class="progress"></div></div>
 </div>
 
 <footer>
@@ -380,18 +329,16 @@ margin-top:40px;
 
 <script>
 
-/* ☰ MENU */
+/* MENU */
 function toggleMenu(){
 document.getElementById("sideMenu").classList.toggle("active");
-document.getElementById("overlay").classList.toggle("active");
 }
 
-/* FOLLOWERS LIVE */
+/* FOLLOWERS */
 let base = 173;
 let followers = 173;
 
 function liveFollowers(){
-
 let change = Math.floor(Math.random()*5)-2;
 followers += change;
 
@@ -405,7 +352,7 @@ setTimeout(liveFollowers, 900);
 
 liveFollowers();
 
-/* 🌌 STARS */
+/* STARS */
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
 
