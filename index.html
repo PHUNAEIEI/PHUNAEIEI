@@ -47,13 +47,20 @@ align-items:center;
 gap:12px;
 }
 
-.nav-left img{
+/* 🔥 ตัว P แทนรูป */
+.logo-p{
 width:50px;
 height:50px;
+display:flex;
+align-items:center;
+justify-content:center;
 border-radius:12px;
 border:2px solid #8b2cff;
 box-shadow:0 0 15px #8b2cff;
-object-fit:cover;
+font-family:'Orbitron';
+font-size:22px;
+color:#f2d4ff;
+background:#140022;
 }
 
 .nav-left h1{
@@ -96,24 +103,30 @@ url('https://images.unsplash.com/photo-1511512578047-dfb367046420');
 background-size:cover;
 }
 
-/* GLOW WRAP */
+/* 🔥 P กลาง + glow */
 .glow-wrap{
 position:relative;
 display:inline-block;
 margin-bottom:20px;
 }
 
-.glow-wrap img{
+.logo-big{
 width:90px;
 height:90px;
 border-radius:20px;
-object-fit:cover;
+display:flex;
+align-items:center;
+justify-content:center;
+font-family:'Orbitron';
+font-size:40px;
+color:#f2d4ff;
+background:#140022;
+border:2px solid #8b2cff;
 position:relative;
 z-index:2;
-border:2px solid #8b2cff;
 }
 
-/* glow animation */
+/* glow หมุน */
 .glow-wrap::before{
 content:"";
 position:absolute;
@@ -253,7 +266,7 @@ margin-top:50px;
 
 <div class="nav-left">
 
-<img src="https://cdn.discordapp.com/attachments/1483287253483782185/1502925774125006901/file_00000000184c720b8882374591789c9b.png">
+<div class="logo-p">P</div>
 
 <h1>PHUNAEIEI</h1>
 
@@ -272,7 +285,7 @@ margin-top:50px;
 <section class="hero" id="home">
 
 <div class="glow-wrap">
-  <img src="https://cdn.discordapp.com/attachments/1483287253483782185/1502925774125006901/file_00000000184c720b8882374591789c9b.png">
+  <div class="logo-big">P</div>
 </div>
 
 <h2>PHUNAEIEI</h2>
