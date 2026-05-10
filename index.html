@@ -25,7 +25,7 @@ font-family:'Poppins',sans-serif;
 overflow-x:hidden;
 }
 
-/* 🌌 STAR */
+/* STAR */
 #stars{
 position:fixed;
 top:0;
@@ -78,11 +78,10 @@ font-family:'Orbitron';
 opacity:0.9;
 }
 
-/* ☰ */
+/* MENU */
 .menu-toggle{
 font-size:28px;
 cursor:pointer;
-user-select:none;
 z-index:10002;
 position:relative;
 }
@@ -113,7 +112,7 @@ padding:20px;
 display:flex;
 flex-direction:column;
 gap:12px;
-transition:0.3s ease;
+transition:0.3s;
 z-index:9999;
 }
 .side-menu.active{right:0;}
@@ -125,28 +124,6 @@ padding:10px;
 background:#140022;
 border-radius:10px;
 border:1px solid #8b2cff;
-}
-
-/* MENU HEADER */
-.menu-header{
-font-family:'Orbitron';
-text-align:center;
-font-size:16px;
-color:#d9b3ff;
-padding-bottom:10px;
-border-bottom:1px solid #8b2cff;
-margin-bottom:10px;
-letter-spacing:2px;
-}
-
-/* MENU FOOTER */
-.menu-footer{
-margin-top:auto;
-text-align:center;
-font-size:12px;
-opacity:0.7;
-padding-top:10px;
-border-top:1px solid #8b2cff;
 }
 
 /* HERO */
@@ -207,6 +184,7 @@ border-radius:10px;
 font-size:12px;
 }
 
+/* 🔴 LIVE FIX */
 .live-card{
 margin-top:18px;
 padding:8px 14px;
@@ -214,6 +192,27 @@ border:1px solid #8b2cff;
 border-radius:12px;
 background:rgba(20,0,34,0.6);
 font-size:12px;
+display:inline-block;
+animation:glow 1.5s infinite;
+}
+
+.live-card::before{
+content:"●";
+color:red;
+margin-right:6px;
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+0%{opacity:1;}
+50%{opacity:0.2;}
+100%{opacity:1;}
+}
+
+@keyframes glow{
+0%{box-shadow:0 0 5px rgba(255,0,0,0.3);}
+50%{box-shadow:0 0 15px rgba(255,0,0,0.7);}
+100%{box-shadow:0 0 5px rgba(255,0,0,0.3);}
 }
 
 /* SECTION */
@@ -303,7 +302,7 @@ margin-top:30px;
 
 <body>
 
-<!-- 🌌 STAR -->
+<!-- STAR -->
 <canvas id="stars"></canvas>
 
 <!-- NAV -->
@@ -314,25 +313,19 @@ margin-top:30px;
 <h1>PHUNAEIEI</h1>
 </div>
 
-<div class="menu-toggle" id="btn" onclick="toggleMenu()">☰</div>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
 </div>
 
 <!-- OVERLAY -->
 <div class="overlay" id="overlay" onclick="closeMenu()"></div>
 
-<!-- SIDE MENU -->
+<!-- MENU -->
 <div class="side-menu" id="menu">
-
-<div class="menu-header">MENU</div>
-
 <a href="#home">HOME</a>
 <a href="#stats">STATS</a>
 <a href="#videos">VIDEOS</a>
 <a href="#challenge">CHALLENGE</a>
-
-<div class="menu-footer">© PHUNAEIEI 2026</div>
-
 </div>
 
 <!-- HERO -->
@@ -349,7 +342,10 @@ margin-top:30px;
 <a href="#stats">STATS</a>
 </div>
 
-<div class="live-card">🔥 LIVE • 173 Followers</div>
+<!-- 🔥 FIX HERE ONLY -->
+<div class="live-card">
+🔥 LIVE • <span id="followers">173</span> Followers
+</div>
 
 </section>
 
@@ -360,7 +356,7 @@ margin-top:30px;
 
 <div class="stat-box">
 <h3>FOLLOWERS</h3>
-<p id="followers">173</p>
+<p id="followers2">173</p>
 </div>
 
 <div class="stat-box"><h3>VIDEOS</h3><p>6</p></div>
@@ -395,33 +391,33 @@ margin-top:30px;
 
 <script>
 
-/* MENU FIX */
-const menu=document.getElementById("menu");
-const overlay=document.getElementById("overlay");
-const btn=document.getElementById("btn");
-
+/* MENU */
 function toggleMenu(){
-menu.classList.toggle("active");
-overlay.classList.toggle("active");
-btn.innerHTML = menu.classList.contains("active") ? "✕" : "☰";
+document.getElementById("menu").classList.toggle("active");
+document.getElementById("overlay").classList.toggle("active");
 }
 
 function closeMenu(){
-menu.classList.remove("active");
-overlay.classList.remove("active");
-btn.innerHTML="☰";
+document.getElementById("menu").classList.remove("active");
+document.getElementById("overlay").classList.remove("active");
 }
 
-overlay.addEventListener("click",closeMenu);
+/* 🔥 LIVE FOLLOWERS (FIX) */
+let base = 173;
+let f = 173;
 
-/* FOLLOWERS */
-let f=173;
 setInterval(()=>{
 f += Math.floor(Math.random()*3)-1;
-if(f<170)f=170;
-if(f>176)f=176;
-document.getElementById("followers").innerText=f;
-},1000);
+
+if(f > base + 6) f = base + 6;
+if(f < base - 6) f = base - 6;
+
+/* sync 2 จุด */
+document.getElementById("followers").innerText = f;
+if(document.getElementById("followers2"))
+document.getElementById("followers2").innerText = f;
+
+},800);
 
 /* STARS */
 const c=document.getElementById("stars");
