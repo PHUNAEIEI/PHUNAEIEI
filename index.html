@@ -24,7 +24,7 @@ font-family:'Poppins',sans-serif;
 overflow-x:hidden;
 }
 
-/* ================= STAR ================= */
+/* ================= STARS ================= */
 
 #stars{
 position:fixed;
@@ -46,9 +46,9 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:10px 15px;
-background:rgba(0,0,0,0.6);
-border-bottom:1px solid #8b2cff;
+background:rgba(0,0,0,0.55);
 backdrop-filter:blur(10px);
+border-bottom:1px solid #8b2cff;
 z-index:9999;
 }
 
@@ -62,28 +62,25 @@ gap:10px;
 width:36px;
 height:36px;
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:center;
+border-radius:10px;
 background:#140022;
 border:2px solid #8b2cff;
-border-radius:10px;
 font-family:'Orbitron';
 font-size:14px;
+box-shadow:0 0 12px #8b2cff;
 }
 
-/* TOP NAME */
 .nav-left h1{
 font-size:14px;
 font-family:'Orbitron';
-font-weight:600;
 letter-spacing:1px;
 }
 
-/* ☰ */
 .menu-toggle{
 font-size:24px;
 cursor:pointer;
-z-index:10000;
 }
 
 /* ================= MENU ================= */
@@ -123,29 +120,34 @@ z-index:9999;
 right:0;
 }
 
+.menu-header{
+text-align:center;
+font-family:'Orbitron';
+padding-bottom:10px;
+border-bottom:1px solid #8b2cff;
+margin-bottom:10px;
+color:#caa4ff;
+}
+
 .side-menu a{
-color:white;
 text-decoration:none;
+color:white;
 padding:12px;
 background:#140022;
 border:1px solid #8b2cff;
 border-radius:12px;
+transition:0.3s;
 }
 
-.menu-header{
-text-align:center;
-font-family:'Orbitron';
-margin-bottom:10px;
-padding-bottom:10px;
-border-bottom:1px solid #8b2cff;
-color:#d9b3ff;
+.side-menu a:hover{
+background:#1d0033;
 }
 
 .menu-footer{
 margin-top:auto;
 text-align:center;
 font-size:12px;
-opacity:0.7;
+opacity:0.6;
 padding-top:10px;
 border-top:1px solid #8b2cff;
 }
@@ -159,44 +161,43 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:0 15px;
+padding:0 20px;
 }
 
 .logo-big{
-width:85px;
-height:85px;
+width:90px;
+height:90px;
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:center;
+border-radius:22px;
 background:#140022;
 border:2px solid #8b2cff;
-border-radius:20px;
-font-size:34px;
+font-size:36px;
 font-family:'Orbitron';
 box-shadow:0 0 25px #8b2cff;
 }
 
 .hero h2{
-font-family:'Orbitron';
-font-size:clamp(34px,7vw,60px);
 margin-top:15px;
+font-size:clamp(34px,7vw,62px);
+font-family:'Orbitron';
 }
 
 .mid-text{
 margin-top:10px;
 font-size:11px;
 letter-spacing:3px;
-opacity:0.6;
+opacity:0.7;
 }
-
-/* ================= LIVE ================= */
 
 .live-card{
 margin-top:18px;
-padding:10px 16px;
-border:1px solid #8b2cff;
+padding:12px 18px;
 border-radius:14px;
-background:rgba(20,0,34,0.5);
+background:rgba(15,0,30,0.95);
+border:1px solid #8b2cff;
+box-shadow:0 0 20px rgba(139,44,255,0.2);
 font-size:14px;
 }
 
@@ -205,7 +206,7 @@ font-size:14px;
 .section-title{
 text-align:center;
 font-family:'Orbitron';
-margin:35px 0 20px;
+margin:30px 0 20px;
 font-size:20px;
 letter-spacing:2px;
 }
@@ -222,15 +223,88 @@ padding:15px;
 .stat-card{
 background:rgba(15,0,30,0.95);
 border:1px solid #8b2cff;
-border-radius:20px;
+border-radius:22px;
 padding:22px 15px;
 text-align:center;
 box-shadow:0 0 20px rgba(139,44,255,0.12);
 }
 
-.icon{
-font-size:30px;
-margin-bottom:10px;
+/* UI ICON */
+.ui-icon{
+width:52px;
+height:52px;
+margin:0 auto 12px;
+border-radius:14px;
+background:#140022;
+border:1px solid #8b2cff;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 0 15px rgba(139,44,255,0.25);
+position:relative;
+}
+
+/* FOLLOWERS ICON */
+.followers-ui::before,
+.followers-ui::after{
+content:'';
+position:absolute;
+background:#b86cff;
+border-radius:50%;
+}
+
+.followers-ui::before{
+width:14px;
+height:14px;
+top:10px;
+}
+
+.followers-ui::after{
+width:22px;
+height:12px;
+bottom:10px;
+border-radius:10px;
+}
+
+/* VIDEO ICON */
+.video-ui::before{
+content:'';
+width:0;
+height:0;
+border-top:10px solid transparent;
+border-bottom:10px solid transparent;
+border-left:16px solid #b86cff;
+margin-left:4px;
+}
+
+/* VIEWS ICON */
+.views-ui::before{
+content:'';
+width:26px;
+height:16px;
+border:2px solid #b86cff;
+border-radius:20px;
+position:absolute;
+}
+
+.views-ui::after{
+content:'';
+width:8px;
+height:8px;
+background:#b86cff;
+border-radius:50%;
+position:absolute;
+}
+
+/* DONATE ICON */
+.donate-ui::before{
+content:'';
+width:22px;
+height:22px;
+background:#b86cff;
+transform:rotate(45deg);
+border-radius:4px;
+position:absolute;
 }
 
 .stat-card h3{
@@ -243,7 +317,6 @@ margin-bottom:8px;
 .stat-card p{
 font-size:30px;
 font-family:'Orbitron';
-font-weight:700;
 }
 
 /* ================= BOXES ================= */
@@ -265,26 +338,26 @@ box-shadow:0 0 20px rgba(139,44,255,0.12);
 .activity-box h2,
 .social-box h2{
 font-family:'Orbitron';
+margin-bottom:14px;
 font-size:18px;
-margin-bottom:15px;
 }
-
-/* ================= DONATE ================= */
 
 .support-box p{
-font-size:14px;
 opacity:0.8;
+font-size:14px;
 margin-bottom:18px;
 }
+
+/* ================= DONATE BUTTON ================= */
 
 .donate-btn{
 display:block;
 text-align:center;
 padding:15px;
+border-radius:15px;
 background:#8b2cff;
 color:white;
 text-decoration:none;
-border-radius:15px;
 font-weight:700;
 box-shadow:0 0 20px rgba(139,44,255,0.5);
 transition:0.3s;
@@ -302,10 +375,10 @@ margin-top:16px;
 
 .donate-mini{
 flex:1;
-background:#140022;
-border:1px solid #8b2cff;
 padding:10px;
 text-align:center;
+background:#140022;
+border:1px solid #8b2cff;
 border-radius:12px;
 font-size:12px;
 }
@@ -315,13 +388,13 @@ font-size:12px;
 .goal-top{
 display:flex;
 justify-content:space-between;
-margin-bottom:10px;
 font-size:14px;
+margin-bottom:10px;
 }
 
 .goal-bar{
 height:14px;
-background:#1d0b30;
+background:#1c0c2d;
 border-radius:20px;
 overflow:hidden;
 }
@@ -330,7 +403,7 @@ overflow:hidden;
 width:25%;
 height:100%;
 background:#8b2cff;
-box-shadow:0 0 15px #8b2cff;
+box-shadow:0 0 12px #8b2cff;
 }
 
 .goal-text{
@@ -363,15 +436,13 @@ gap:12px;
 }
 
 .social-btn{
-display:flex;
-justify-content:center;
-align-items:center;
 padding:14px;
+text-align:center;
+text-decoration:none;
+color:white;
 background:#140022;
 border:1px solid #8b2cff;
 border-radius:14px;
-text-decoration:none;
-color:white;
 font-weight:600;
 }
 
@@ -382,8 +453,8 @@ text-align:center;
 padding:30px;
 margin-top:20px;
 border-top:1px solid #8b2cff;
+opacity:0.7;
 font-size:13px;
-opacity:0.8;
 }
 
 /* ================= MOBILE ================= */
@@ -395,9 +466,9 @@ font-size:34px;
 }
 
 .logo-big{
-width:70px;
-height:70px;
-font-size:28px;
+width:72px;
+height:72px;
+font-size:30px;
 }
 
 .stat-card p{
@@ -418,10 +489,10 @@ padding:18px;
 
 <body>
 
-<!-- STAR -->
 <canvas id="stars"></canvas>
 
 <!-- NAVBAR -->
+
 <div class="navbar">
 
 <div class="nav-left">
@@ -434,11 +505,14 @@ padding:18px;
 </div>
 
 <!-- MENU -->
+
 <div class="overlay" id="overlay" onclick="closeMenu()"></div>
 
 <div class="side-menu" id="menu">
 
-<div class="menu-header">MENU</div>
+<div class="menu-header">
+MENU
+</div>
 
 <a href="#">HOME</a>
 <a href="#">STATS</a>
@@ -452,6 +526,7 @@ padding:18px;
 </div>
 
 <!-- HERO -->
+
 <section class="hero">
 
 <div class="logo-big">P</div>
@@ -469,30 +544,33 @@ CREATOR • MODS • LIVE STREAM
 </section>
 
 <!-- STATS -->
-<h2 class="section-title">STATS</h2>
+
+<h2 class="section-title">
+STATS
+</h2>
 
 <div class="stats-grid">
 
 <div class="stat-card">
-<div class="icon">👥</div>
+<div class="ui-icon followers-ui"></div>
 <h3>FOLLOWERS</h3>
 <p id="followers2">180</p>
 </div>
 
 <div class="stat-card">
-<div class="icon">▶</div>
+<div class="ui-icon video-ui"></div>
 <h3>VIDEOS</h3>
 <p>6</p>
 </div>
 
 <div class="stat-card">
-<div class="icon">👁</div>
+<div class="ui-icon views-ui"></div>
 <h3>VIEWS</h3>
 <p>10K</p>
 </div>
 
 <div class="stat-card">
-<div class="icon">💸</div>
+<div class="ui-icon donate-ui"></div>
 <h3>DONATIONS</h3>
 <p>฿230</p>
 </div>
@@ -500,31 +578,43 @@ CREATOR • MODS • LIVE STREAM
 </div>
 
 <!-- SUPPORT -->
+
 <div class="support-box">
 
 <h2>SUPPORT ME</h2>
 
-<p>สนับสนุนผมได้ที่นี่ 💜</p>
+<p>
+สนับสนุนผมได้ที่นี่ 💜
+</p>
 
 <a href="https://tipme.in.th/phunaeiei3"
 target="_blank"
 class="donate-btn">
 
-💜 DONATE NOW
+DONATE NOW
 
 </a>
 
 <div class="donate-links">
 
-<div class="donate-mini">TIPME</div>
-<div class="donate-mini">TRUEWALLET</div>
-<div class="donate-mini">QR CODE</div>
+<div class="donate-mini">
+TIPME
+</div>
+
+<div class="donate-mini">
+TRUEWALLET
+</div>
+
+<div class="donate-mini">
+QR CODE
+</div>
 
 </div>
 
 </div>
 
 <!-- GOAL -->
+
 <div class="goal-box">
 
 <h2>GOAL SUPPORT</h2>
@@ -539,34 +629,36 @@ class="donate-btn">
 </div>
 
 <p class="goal-text">
-ขอบคุณทุกการสนับสนุน 💜
+ขอบคุณทุกการสนับสนุน
 </p>
 
 </div>
 
 <!-- ACTIVITY -->
+
 <div class="activity-box">
 
 <h2>RECENT ACTIVITY</h2>
 
 <div class="activity-item">
-<span>👤 New Follower</span>
+<span>New follower</span>
 <b>1 minute ago</b>
 </div>
 
 <div class="activity-item">
-<span>💸 Donation +฿10</span>
+<span>Donation +฿10</span>
 <b>3 minutes ago</b>
 </div>
 
 <div class="activity-item">
-<span>👤 New Follower</span>
+<span>New follower</span>
 <b>5 minutes ago</b>
 </div>
 
 </div>
 
 <!-- SOCIAL -->
+
 <div class="social-box">
 
 <h2>FOLLOW ME</h2>
@@ -583,6 +675,7 @@ class="donate-btn">
 </div>
 
 <!-- FOOTER -->
+
 <footer>
 @phunaeiei3
 </footer>
@@ -604,7 +697,7 @@ menu.classList.remove("active");
 overlay.classList.remove("active");
 }
 
-/* FOLLOWERS */
+/* LIVE FOLLOWERS */
 
 let base=180;
 let f=180;
@@ -632,11 +725,13 @@ c.height=window.innerHeight;
 let stars=[];
 
 for(let i=0;i<120;i++){
+
 stars.push({
 x:Math.random()*c.width,
 y:Math.random()*c.height,
 r:Math.random()*1.5
 });
+
 }
 
 function draw(){
