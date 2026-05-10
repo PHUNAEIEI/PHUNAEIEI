@@ -34,7 +34,7 @@ left:0;
 width:100%;
 height:100%;
 overflow:hidden;
-z-index:-3;
+z-index:-5;
 
 background:
 radial-gradient(circle at top,#2d0050 0%,#12001f 35%,#05010b 100%);
@@ -181,8 +181,6 @@ box-shadow:
 0 0 25px white,
 0 0 60px #b86cff,
 0 0 120px #8b2cff;
-
-opacity:0.9;
 }
 
 @keyframes galaxySpin{
@@ -217,7 +215,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-z-index:-2;
+z-index:-4;
 }
 
 /* ================= NAVBAR ================= */
@@ -268,14 +266,20 @@ box-shadow:0 0 14px #8b2cff;
 }
 
 .nav-left h1{
-font-size:14px;
+font-size:15px;
 font-family:'Orbitron';
 letter-spacing:1px;
 }
 
 .menu-toggle{
-font-size:26px;
+font-size:28px;
 cursor:pointer;
+transition:0.3s;
+}
+
+.menu-toggle:hover{
+transform:scale(1.1);
+color:#c86cff;
 }
 
 /* ================= MENU ================= */
@@ -289,9 +293,9 @@ width:100%;
 height:100vh;
 
 background:rgba(5,1,11,0.97);
-backdrop-filter:blur(14px);
+backdrop-filter:blur(18px);
 
-padding:20px;
+padding:22px;
 
 display:flex;
 flex-direction:column;
@@ -309,23 +313,25 @@ opacity:1;
 pointer-events:auto;
 }
 
+/* TOP */
+
 .menu-top{
 display:flex;
 justify-content:space-between;
 align-items:center;
 
-margin-bottom:30px;
+margin-bottom:35px;
 }
 
 .menu-logo{
-width:50px;
-height:50px;
+width:54px;
+height:54px;
 
 display:flex;
 align-items:center;
 justify-content:center;
 
-border-radius:16px;
+border-radius:18px;
 
 background:#140022;
 border:2px solid #8b2cff;
@@ -333,20 +339,33 @@ border:2px solid #8b2cff;
 font-family:'Orbitron';
 font-size:22px;
 
-box-shadow:0 0 18px #8b2cff;
+box-shadow:0 0 20px #8b2cff;
 }
 
 .close-btn{
-font-size:32px;
+font-size:34px;
 cursor:pointer;
+transition:0.3s;
 }
+
+.close-btn:hover{
+transform:rotate(90deg);
+color:#c86cff;
+}
+
+/* TITLE */
 
 .menu-title{
 font-family:'Orbitron';
-font-size:30px;
-letter-spacing:4px;
+font-size:32px;
+letter-spacing:5px;
+
 margin-bottom:25px;
+
+text-shadow:0 0 15px #8b2cff;
 }
+
+/* GRID */
 
 .menu-grid{
 display:grid;
@@ -354,10 +373,12 @@ grid-template-columns:1fr 1fr;
 gap:16px;
 }
 
+/* CARD */
+
 .menu-card{
 height:120px;
 
-background:#12001f;
+background:rgba(20,0,34,0.95);
 
 border:1px solid #8b2cff;
 border-radius:24px;
@@ -371,11 +392,16 @@ text-decoration:none;
 color:white;
 
 transition:0.25s;
+
+box-shadow:0 0 20px rgba(139,44,255,0.15);
 }
 
 .menu-card:hover{
-transform:scale(1.03);
+transform:translateY(-4px) scale(1.02);
+
 background:#1b0030;
+
+box-shadow:0 0 28px rgba(139,44,255,0.4);
 }
 
 .menu-icon{
@@ -389,15 +415,19 @@ letter-spacing:2px;
 font-weight:600;
 }
 
+/* FOOTER */
+
 .menu-footer{
 margin-top:auto;
 
 text-align:center;
 
-opacity:0.6;
-font-size:12px;
+padding-top:35px;
 
-padding-top:30px;
+opacity:0.65;
+
+font-size:12px;
+letter-spacing:2px;
 }
 
 /* ================= HERO ================= */
@@ -467,7 +497,7 @@ box-shadow:0 0 20px rgba(139,44,255,0.2);
 font-size:14px;
 }
 
-/* ================= STATS ================= */
+/* ================= TITLES ================= */
 
 .section-title{
 text-align:center;
@@ -479,6 +509,8 @@ margin:10px 0 20px;
 font-size:20px;
 letter-spacing:2px;
 }
+
+/* ================= STATS ================= */
 
 .stats-grid{
 display:grid;
@@ -744,6 +776,8 @@ width:0;
 
 <body>
 
+<!-- ================= BG ================= -->
+
 <div class="space-bg">
 
 <div class="glow glow1"></div>
@@ -757,6 +791,8 @@ width:0;
 </div>
 
 <canvas id="stars"></canvas>
+
+<!-- ================= NAVBAR ================= -->
 
 <div class="navbar">
 
@@ -775,6 +811,72 @@ P
 </div>
 
 </div>
+
+<!-- ================= MENU ================= -->
+
+<div class="fullscreen-menu" id="menu">
+
+<div class="menu-top">
+
+<div class="menu-logo">
+P
+</div>
+
+<div class="close-btn" onclick="closeMenu()">
+✕
+</div>
+
+</div>
+
+<div class="menu-title">
+MENU
+</div>
+
+<div class="menu-grid">
+
+<a href="#" class="menu-card">
+<div class="menu-icon">⌂</div>
+<span>HOME</span>
+</a>
+
+<a href="#" class="menu-card">
+<div class="menu-icon">★</div>
+<span>STATS</span>
+</a>
+
+<a href="https://ezdn.app/phunaeiei77"
+target="_blank"
+class="menu-card">
+
+<div class="menu-icon">❤</div>
+<span>DONATE</span>
+
+</a>
+
+<a href="#" class="menu-card">
+<div class="menu-icon">▶</div>
+<span>VIDEOS</span>
+</a>
+
+<a href="#" class="menu-card">
+<div class="menu-icon">☁</div>
+<span>SOCIAL</span>
+</a>
+
+<a href="#" class="menu-card">
+<div class="menu-icon">✦</div>
+<span>LIVE</span>
+</a>
+
+</div>
+
+<div class="menu-footer">
+© PHUNAEIEI 2026 • ALL RIGHTS RESERVED
+</div>
+
+</div>
+
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
@@ -795,6 +897,8 @@ CREATOR • MODS • LIVE STREAM
 </div>
 
 </section>
+
+<!-- ================= STATS ================= -->
 
 <h2 class="section-title">
 STATS
@@ -823,6 +927,8 @@ STATS
 </div>
 
 </div>
+
+<!-- ================= DONATE ================= -->
 
 <div class="support-box">
 
@@ -858,6 +964,8 @@ QR CODE
 
 </div>
 
+<!-- ================= GOAL ================= -->
+
 <div class="goal-box">
 
 <h2>GOAL SUPPORT</h2>
@@ -883,6 +991,8 @@ START YOUR SUPPORT GOAL
 </p>
 
 </div>
+
+<!-- ================= ACTIVITY ================= -->
 
 <div class="activity-box">
 
@@ -926,6 +1036,8 @@ New followers coming soon
 
 </div>
 
+<!-- ================= SOCIAL ================= -->
+
 <div class="social-box">
 
 <h2>FOLLOW ME</h2>
@@ -957,6 +1069,18 @@ Instagram
 </footer>
 
 <script>
+
+/* ================= MENU ================= */
+
+const menu=document.getElementById("menu");
+
+function toggleMenu(){
+menu.classList.add("active");
+}
+
+function closeMenu(){
+menu.classList.remove("active");
+}
 
 /* ================= STARS ================= */
 
