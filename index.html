@@ -23,7 +23,7 @@ font-family:'Poppins',sans-serif;
 overflow-x:hidden;
 }
 
-/* STAR BACKGROUND */
+/* STAR */
 #stars{
 position:fixed;
 top:0;
@@ -68,10 +68,16 @@ font-family:Orbitron;
 
 /* ☰ */
 .menu-toggle{
-font-size:30px;
+font-size:26px;
 cursor:pointer;
 position:relative;
 z-index:10000;
+}
+
+/* HEADER TEXT FIX (14–16px) */
+.nav-left h1{
+font-size:15px;
+font-family:Orbitron;
 }
 
 /* OVERLAY */
@@ -214,6 +220,38 @@ text-align:center;
 padding:25px;
 border-top:1px solid #8b2cff;
 margin-top:20px;
+}
+
+/* 📱 MOBILE FIX */
+@media (max-width:768px){
+
+.nav-left h1{
+font-size:14px;
+}
+
+.menu-toggle{
+font-size:24px;
+}
+
+.hero h2{
+font-size:34px;
+}
+
+.logo-big{
+width:70px;
+height:70px;
+font-size:28px;
+}
+
+.stat-box p{
+font-size:24px;
+}
+
+.mid-text{
+font-size:10px;
+letter-spacing:2px;
+}
+
 }
 
 </style>
