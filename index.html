@@ -3,36 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>PHUNAEIEI</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:#05010b;color:white;font-family:Poppins;}
-
-.navbar{
-position:fixed;top:0;width:100%;
-display:flex;justify-content:space-between;
-padding:15px 30px;
-background:rgba(0,0,0,0.7);
-border-bottom:1px solid #8b2cff;
-z-index:999;
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
-.nav-left{display:flex;align-items:center;gap:12px;}
+body{
+background:#05010b;
+color:white;
+font-family:'Poppins',sans-serif;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.75);
+backdrop-filter:blur(10px);
+border-bottom:1px solid #8b2cff;
+z-index:9999;
+}
+
+.nav-left{
+display:flex;
+align-items:center;
+gap:12px;
+}
 
 .nav-left img{
-width:50px;height:50px;
+width:50px;
+height:50px;
 border-radius:12px;
 border:2px solid #8b2cff;
-object-fit:cover;
 box-shadow:0 0 15px #8b2cff;
+object-fit:cover;
 }
 
-.nav-left h1{font-family:Orbitron;color:#f2d4ff;}
+.nav-left h1{
+font-family:'Orbitron';
+font-size:24px;
+color:#f2d4ff;
+}
 
+.menu{
+display:flex;
+gap:12px;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+padding:8px 14px;
+border-radius:10px;
+background:#140022;
+border:1px solid #8b2cff;
+transition:0.3s;
+font-size:14px;
+}
+
+.menu a:hover{
+background:#8b2cff;
+}
+
+/* HERO */
 .hero{
 height:100vh;
 display:flex;
@@ -40,55 +90,96 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
+background:
+linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
 url('https://images.unsplash.com/photo-1511512578047-dfb367046420');
 background-size:cover;
 }
 
-.hero img{
-width:130px;height:130px;
-border-radius:25px;
-border:3px solid #8b2cff;
-box-shadow:0 0 35px #8b2cff;
-object-fit:cover;
+/* 🔥 GLOW WRAP */
+.glow-wrap{
+position:relative;
+display:inline-block;
+margin-bottom:20px;
 }
 
-.hero h2{font-size:70px;font-family:Orbitron;color:#f2d4ff;}
+.glow-wrap img{
+width:90px;
+height:90px;
+border-radius:20px;
+object-fit:cover;
+position:relative;
+z-index:2;
+border:2px solid #8b2cff;
+}
 
+/* วงแสงหมุน */
+.glow-wrap::before{
+content:"";
+position:absolute;
+top:-10px;
+left:-10px;
+right:-10px;
+bottom:-10px;
+border-radius:30px;
+background:conic-gradient(
+#8b2cff,
+#d946ef,
+#00f0ff,
+#8b2cff
+);
+animation:spin 2.5s linear infinite;
+filter:blur(6px);
+z-index:1;
+}
+
+@keyframes spin{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+
+/* TEXT */
+.hero h2{
+font-size:70px;
+font-family:'Orbitron';
+color:#f2d4ff;
+}
+
+/* SECTION */
 .section-title{
 text-align:center;
 margin:60px 0 20px;
-font-family:Orbitron;
+font-family:'Orbitron';
 color:#f2d4ff;
-font-size:38px;
 }
 
+/* STATS */
 .stats{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
 padding:20px;
 }
 
 .stat-box{
 background:#0d0018;
-padding:30px;
 border:1px solid #8b2cff;
+padding:30px;
 border-radius:20px;
 text-align:center;
 }
 
 .stat-box p{
 font-size:40px;
+font-family:'Orbitron';
 color:#d9b3ff;
-font-family:Orbitron;
 }
 
-/* VIDEO */
+/* VIDEOS */
 .slider{
 display:flex;
-overflow-x:auto;
 gap:20px;
+overflow-x:auto;
 padding:20px;
 }
 
@@ -106,7 +197,9 @@ height:200px;
 object-fit:cover;
 }
 
-.video-content{padding:15px;}
+.video-content{
+padding:15px;
+}
 
 .watch-btn{
 display:inline-block;
@@ -118,6 +211,7 @@ color:white;
 text-decoration:none;
 }
 
+/* CHALLENGE */
 .challenge{
 margin:30px;
 padding:40px;
@@ -127,9 +221,21 @@ border-radius:25px;
 text-align:center;
 }
 
-.bar{height:25px;background:#2a1240;border-radius:20px;margin-top:20px;}
-.progress{width:72%;height:100%;background:#8b2cff;}
+.bar{
+height:25px;
+background:#2a1240;
+border-radius:20px;
+margin-top:20px;
+overflow:hidden;
+}
 
+.progress{
+width:72%;
+height:100%;
+background:#8b2cff;
+}
+
+/* FOOTER */
 footer{
 text-align:center;
 padding:40px;
@@ -142,38 +248,50 @@ margin-top:50px;
 
 <body>
 
-<!-- NAV -->
+<!-- NAVBAR -->
 <div class="navbar">
+
 <div class="nav-left">
 
-<img src="https://cdn.discordapp.com/attachments/1483287253483782185/1502925774125006901/file_00000000184c720b8882374591789c9b.png?raw=true">
+<img src="https://cdn.discordapp.com/attachments/1483287253483782185/1502925774125006901/file_00000000184c720b8882374591789c9b.png">
 
 <h1>PHUNAEIEI</h1>
 
 </div>
+
+<div class="menu">
+<a href="#home">HOME</a>
+<a href="#stats">STATS</a>
+<a href="#videos">VIDEOS</a>
+<a href="#challenge">CHALLENGE</a>
+</div>
+
 </div>
 
 <!-- HERO -->
-<div class="hero">
+<section class="hero" id="home">
 
-<img src="https://cdn.discordapp.com/attachments/1483287253483782185/1502925774125006901/file_00000000184c720b8882374591789c9b.png?raw=true">
-
-<h2>PHUNAEIEI</h2>
-<p>MINECRAFT CREATOR</p>
-
+<div class="glow-wrap">
+  <img src="https://cdn.discordapp.com/attachments/1483287253483782185/1502925774125006901/file_00000000184c720b8882374591789c9b.png">
 </div>
 
+<h2>PHUNAEIEI</h2>
+
+</section>
+
 <!-- STATS -->
-<h2 class="section-title">STATS</h2>
+<h2 class="section-title" id="stats">STATS</h2>
 
 <div class="stats">
+
 <div class="stat-box"><h3>FOLLOWERS</h3><p>120K</p></div>
 <div class="stat-box"><h3>VIDEOS</h3><p>157</p></div>
 <div class="stat-box"><h3>VIEWS</h3><p>9.4M</p></div>
+
 </div>
 
-<!-- VIDEOS (ครบ 4 คลิป) -->
-<h2 class="section-title">LATEST VIDEOS</h2>
+<!-- VIDEOS -->
+<h2 class="section-title" id="videos">VIDEOS</h2>
 
 <div class="slider">
 
@@ -204,7 +322,7 @@ margin-top:50px;
 <div class="video-card">
 <img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f">
 <div class="video-content">
-<h3>LIVE 7 DAYS</h3>
+<h3>LIVE CHALLENGE</h3>
 <a class="watch-btn">WATCH</a>
 </div>
 </div>
@@ -212,10 +330,13 @@ margin-top:50px;
 </div>
 
 <!-- CHALLENGE -->
-<div class="challenge">
-<h2>7 DAYS CHALLENGE</h2>
+<div class="challenge" id="challenge">
+
+<h2>7 DAYS STREAMING</h2>
 <p>Goal 100K Followers</p>
+
 <div class="bar"><div class="progress"></div></div>
+
 </div>
 
 <!-- FOOTER -->
