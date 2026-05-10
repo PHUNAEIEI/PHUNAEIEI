@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>PHUNAEIEI</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -13,161 +14,156 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
 background:#05010b;
 font-family:'Poppins',sans-serif;
 color:white;
-display:flex;
 overflow-x:hidden;
 }
 
-/* SIDEBAR */
+/* NAVBAR */
 
-.sidebar{
-width:240px;
-height:100vh;
-background:#090012;
-border-right:1px solid #a020f0;
-padding:20px;
+.navbar{
 position:fixed;
-overflow:auto;
+top:0;
+left:0;
+width:100%;
+padding:18px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+border-bottom:1px solid #8b2cff;
+z-index:1000;
 }
 
-.sidebar::-webkit-scrollbar{
-width:6px;
+.nav-left{
+display:flex;
+align-items:center;
+gap:15px;
 }
 
-.sidebar::-webkit-scrollbar-thumb{
-background:#7b2ff7;
-}
-
-.logo-box{
-text-align:center;
-margin-bottom:30px;
-}
-
-.logo-box img{
-width:100px;
-height:100px;
-border-radius:20px;
-border:2px solid #a020f0;
+.nav-left img{
+width:50px;
+height:50px;
+border-radius:14px;
+border:2px solid #8b2cff;
+box-shadow:0 0 15px #8b2cff;
 object-fit:cover;
-box-shadow:0 0 20px #7b2ff7;
 }
 
-.logo-box h1{
+.nav-left h1{
 font-family:'Orbitron',sans-serif;
-margin-top:15px;
-font-size:28px;
-color:#d7a7ff;
-}
-
-.logo-box p{
-opacity:0.7;
-font-size:14px;
+font-size:26px;
+color:#f2d4ff;
 }
 
 .menu{
-margin-top:20px;
 display:flex;
-flex-direction:column;
-gap:12px;
+gap:15px;
+flex-wrap:wrap;
 }
 
 .menu a{
 text-decoration:none;
 color:white;
-padding:14px;
-border-radius:14px;
-background:#11001f;
+padding:10px 18px;
+border-radius:12px;
+background:#140022;
+border:1px solid #8b2cff;
 transition:0.3s;
-font-weight:500;
-border:1px solid transparent;
+font-size:14px;
 }
 
 .menu a:hover{
-background:#1b0030;
-border:1px solid #a020f0;
-transform:translateX(5px);
-box-shadow:0 0 15px #7b2ff7;
-}
-
-/* MAIN */
-
-.main{
-margin-left:240px;
-width:100%;
+background:#8b2cff;
+transform:translateY(-3px);
+box-shadow:0 0 15px #8b2cff;
 }
 
 /* HERO */
 
 .hero{
-height:500px;
+height:100vh;
 background:
 linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
 url('https://images.unsplash.com/photo-1511512578047-dfb367046420');
 background-size:cover;
 background-position:center;
 display:flex;
-align-items:center;
-justify-content:center;
 flex-direction:column;
+justify-content:center;
+align-items:center;
 text-align:center;
 padding:20px;
-border-bottom:2px solid #7b2ff7;
+border-bottom:2px solid #8b2cff;
 }
 
-.hero h1{
+.hero img{
+width:130px;
+height:130px;
+border-radius:30px;
+border:3px solid #8b2cff;
+box-shadow:0 0 35px #8b2cff;
+margin-bottom:25px;
+object-fit:cover;
+}
+
+.hero h2{
 font-size:90px;
 font-family:'Orbitron',sans-serif;
-color:#f1d4ff;
+color:#f2d4ff;
 text-shadow:
-0 0 10px #7b2ff7,
-0 0 20px #7b2ff7,
-0 0 40px #7b2ff7;
+0 0 10px #8b2cff,
+0 0 20px #8b2cff,
+0 0 40px #8b2cff;
 }
 
 .hero p{
-margin-top:10px;
-font-size:20px;
-letter-spacing:3px;
+margin-top:15px;
+font-size:22px;
+letter-spacing:5px;
 opacity:0.8;
 }
 
 .hero-buttons{
-margin-top:35px;
+margin-top:40px;
 display:flex;
 gap:20px;
 flex-wrap:wrap;
+justify-content:center;
 }
 
 .hero-buttons a{
-padding:16px 35px;
+padding:18px 38px;
 text-decoration:none;
 color:white;
-border-radius:14px;
 font-weight:600;
+border-radius:18px;
+background:#8b2cff;
+border:1px solid #c084ff;
+box-shadow:0 0 20px rgba(139,44,255,0.5);
 transition:0.3s;
-border:1px solid #a020f0;
-background:#7b2ff7;
-box-shadow:0 0 20px rgba(123,47,247,0.5);
 }
 
 .hero-buttons a:hover{
 transform:scale(1.05);
-background:#9d4dff;
+background:#a855f7;
 }
 
-/* TITLE */
+/* SECTION */
 
-.title{
+.section-title{
 font-family:'Orbitron',sans-serif;
-font-size:40px;
+font-size:42px;
 text-align:center;
-margin:50px 0 30px;
-color:#d7a7ff;
+margin:70px 0 35px;
+color:#f2d4ff;
+text-shadow:0 0 10px #8b2cff;
 }
 
 /* STATS */
@@ -180,30 +176,29 @@ padding:0 30px;
 }
 
 .stat-box{
-background:#0e0019;
-border:1px solid #7b2ff7;
-border-radius:24px;
+background:#0d0018;
+border:1px solid #8b2cff;
 padding:35px;
+border-radius:24px;
 text-align:center;
-box-shadow:0 0 20px rgba(123,47,247,0.2);
+box-shadow:0 0 20px rgba(139,44,255,0.2);
 transition:0.3s;
 }
 
 .stat-box:hover{
 transform:translateY(-8px);
-box-shadow:0 0 30px #7b2ff7;
+box-shadow:0 0 25px #8b2cff;
 }
 
-.stat-box h2{
+.stat-box h3{
 margin-bottom:15px;
-font-size:20px;
+font-size:22px;
 }
 
 .stat-box p{
-font-size:50px;
-font-weight:700;
-color:#d7a7ff;
+font-size:52px;
 font-family:'Orbitron',sans-serif;
+color:#d9b3ff;
 }
 
 /* VIDEO SLIDER */
@@ -212,7 +207,7 @@ font-family:'Orbitron',sans-serif;
 display:flex;
 gap:25px;
 overflow-x:auto;
-padding:20px 30px 40px;
+padding:20px 30px 50px;
 scroll-behavior:smooth;
 }
 
@@ -221,23 +216,23 @@ height:10px;
 }
 
 .slider::-webkit-scrollbar-thumb{
-background:#7b2ff7;
+background:#8b2cff;
 border-radius:20px;
 }
 
 .video-card{
 min-width:320px;
-background:#0e0019;
+background:#0d0018;
 border-radius:24px;
 overflow:hidden;
-border:1px solid #7b2ff7;
+border:1px solid #8b2cff;
 flex-shrink:0;
 transition:0.3s;
 }
 
 .video-card:hover{
 transform:translateY(-10px);
-box-shadow:0 0 25px #7b2ff7;
+box-shadow:0 0 30px #8b2cff;
 }
 
 .video-card img{
@@ -263,7 +258,7 @@ opacity:0.8;
 display:inline-block;
 margin-top:18px;
 padding:12px 20px;
-background:#7b2ff7;
+background:#8b2cff;
 color:white;
 text-decoration:none;
 border-radius:12px;
@@ -273,17 +268,18 @@ border-radius:12px;
 
 .challenge{
 margin:40px 30px;
-background:#0e0019;
+background:#0d0018;
+padding:45px;
 border-radius:30px;
-padding:40px;
-border:1px solid #7b2ff7;
+border:1px solid #8b2cff;
 text-align:center;
+box-shadow:0 0 20px rgba(139,44,255,0.2);
 }
 
 .challenge h2{
 font-family:'Orbitron',sans-serif;
-font-size:45px;
-color:#d7a7ff;
+font-size:50px;
+color:#f2d4ff;
 }
 
 .challenge p{
@@ -294,7 +290,7 @@ font-size:20px;
 .bar{
 width:100%;
 height:28px;
-background:#24003b;
+background:#2a1240;
 border-radius:30px;
 margin-top:25px;
 overflow:hidden;
@@ -303,16 +299,16 @@ overflow:hidden;
 .progress{
 width:72%;
 height:100%;
-background:linear-gradient(to right,#7b2ff7,#d946ef);
+background:linear-gradient(to right,#8b2cff,#d946ef);
 }
 
 /* FOOTER */
 
 footer{
 margin-top:70px;
-padding:40px;
+padding:50px 20px;
 text-align:center;
-border-top:1px solid #7b2ff7;
+border-top:1px solid #8b2cff;
 background:#090012;
 }
 
@@ -324,33 +320,31 @@ margin:10px 0;
 
 @media(max-width:900px){
 
-body{
+.navbar{
 flex-direction:column;
+gap:20px;
+padding:20px;
 }
 
-.sidebar{
-position:relative;
-width:100%;
-height:auto;
-border-right:none;
-border-bottom:1px solid #7b2ff7;
+.menu{
+justify-content:center;
 }
 
-.main{
-margin-left:0;
+.hero h2{
+font-size:48px;
 }
 
-.hero{
-height:auto;
-padding:80px 20px;
+.hero p{
+font-size:16px;
 }
 
-.hero h1{
-font-size:50px;
+.hero img{
+width:100px;
+height:100px;
 }
 
-.title{
-font-size:28px;
+.section-title{
+font-size:30px;
 }
 
 }
@@ -360,115 +354,159 @@ font-size:28px;
 
 <body>
 
-<!-- SIDEBAR -->
+<!-- NAVBAR -->
 
-<div class="sidebar">
+<div class="navbar">
 
-<div class="logo-box">
-<img src="https://i.imgur.com/8Km9tLL.png">
+<div class="nav-left">
+
+<img src="https://i.imgur.com/0y0y0y0.png">
+
 <h1>PHUNAEIEI</h1>
-<p>Minecraft Creator</p>
-</div>
-
 
 </div>
 
-<!-- MAIN -->
+<div class="menu">
 
-<div class="main">
+<a href="#home">HOME</a>
+
+<a href="#stats">STATS</a>
+
+<a href="#videos">VIDEOS</a>
+
+<a href="#challenge">CHALLENGE</a>
+
+</div>
+
+</div>
 
 <!-- HERO -->
 
-<section class="hero">
+<section class="hero" id="home">
 
-<h1>PHUNAEIEI</h1>
+<img src="https://i.imgur.com/0y0y0y0.png">
+
+<h2>PHUNAEIEI</h2>
 
 <p>MINECRAFT CREATOR & GAMING</p>
 
 <div class="hero-buttons">
+
 <a href="#">WATCH VIDEOS</a>
+
 <a href="#">FOLLOW TIKTOK</a>
+
 </div>
 
 </section>
 
 <!-- STATS -->
 
-<h2 class="title">STATS</h2>
+<h2 class="section-title" id="stats">STATS</h2>
 
 <div class="stats">
 
 <div class="stat-box">
-<h2>FOLLOWERS</h2>
-<p>163</p>
+<h3>FOLLOWERS</h3>
+<p>173</p>
 </div>
 
 <div class="stat-box">
-<h2>VIDEOS</h2>
+<h3>VIDEOS</h3>
 <p>7</p>
 </div>
 
 <div class="stat-box">
-<h2>TOTAL VIEWS</h2>
-<p>9K</p>
+<h3>TOTAL VIEWS</h3>
+<p>10K</p>
 </div>
 
 </div>
 
 <!-- VIDEOS -->
 
-<h2 class="title">LATEST VIDEOS</h2>
+<h2 class="section-title" id="videos">LATEST VIDEOS</h2>
 
 <div class="slider">
 
 <div class="video-card">
+
 <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e">
+
 <div class="video-content">
+
 <h3>1 DAY 1 MOD</h3>
+
 <p>Minecraft Bedrock Review</p>
-<a href="#" class="watch-btn">WATCH NOW</a>
+
+<a href="#" class="watch-btn">WATCH</a>
+
 </div>
+
 </div>
 
 <div class="video-card">
+
 <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420">
+
 <div class="video-content">
+
 <h3>HORROR MOD</h3>
+
 <p>100 Days Survival</p>
-<a href="#" class="watch-btn">WATCH NOW</a>
+
+<a href="#" class="watch-btn">WATCH</a>
+
 </div>
+
 </div>
 
 <div class="video-card">
+
 <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8">
+
 <div class="video-content">
-<h3>BEST PVP MODS</h3>
-<p>Texture Pack Review</p>
-<a href="#" class="watch-btn">WATCH NOW</a>
+
+<h3>PVP TEXTURE PACK</h3>
+
+<p>Best Minecraft PvP Pack</p>
+
+<a href="#" class="watch-btn">WATCH</a>
+
 </div>
+
 </div>
 
 <div class="video-card">
+
 <img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f">
+
 <div class="video-content">
+
 <h3>LIVE STREAM</h3>
-<p>7 Days Challenge</p>
-<a href="#" class="watch-btn">WATCH NOW</a>
+
+<p>7 Days Streaming Challenge</p>
+
+<a href="#" class="watch-btn">WATCH</a>
+
 </div>
+
 </div>
 
 </div>
 
 <!-- CHALLENGE -->
 
-<div class="challenge">
+<div class="challenge" id="challenge">
 
 <h2>7 DAYS STREAMING</h2>
 
 <p>Goal : 100K Followers</p>
 
 <div class="bar">
+
 <div class="progress"></div>
+
 </div>
 
 <p style="margin-top:20px;">72%</p>
@@ -480,7 +518,9 @@ font-size:28px;
 <footer>
 
 <p>TikTok : @phunaeiei3</p>
+
 <p>YouTube : PHUNAEIEI</p>
+
 <p>Discord : Coming Soon</p>
 
 <br>
@@ -488,8 +528,6 @@ font-size:28px;
 <p>© PHUNAEIEI 2026</p>
 
 </footer>
-
-</div>
 
 </body>
 </html>
