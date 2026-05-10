@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>PHUNAEIEI</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -14,41 +13,67 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#07010f;
+background:#05010b;
+font-family:'Poppins',sans-serif;
 color:white;
 display:flex;
-min-height:100vh;
 overflow-x:hidden;
 }
 
 /* SIDEBAR */
 
 .sidebar{
-width:260px;
-background:#0f051d;
-border-right:1px solid #7b2ff7;
-padding:25px;
+width:240px;
+height:100vh;
+background:#090012;
+border-right:1px solid #a020f0;
+padding:20px;
 position:fixed;
-height:100%;
 overflow:auto;
 }
 
-.logo{
-font-size:30px;
-font-weight:700;
-color:#c084ff;
+.sidebar::-webkit-scrollbar{
+width:6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+background:#7b2ff7;
+}
+
+.logo-box{
+text-align:center;
 margin-bottom:30px;
-text-shadow:0 0 15px #7b2ff7;
+}
+
+.logo-box img{
+width:100px;
+height:100px;
+border-radius:20px;
+border:2px solid #a020f0;
+object-fit:cover;
+box-shadow:0 0 20px #7b2ff7;
+}
+
+.logo-box h1{
+font-family:'Orbitron',sans-serif;
+margin-top:15px;
+font-size:28px;
+color:#d7a7ff;
+}
+
+.logo-box p{
+opacity:0.7;
+font-size:14px;
 }
 
 .menu{
+margin-top:20px;
 display:flex;
 flex-direction:column;
-gap:15px;
+gap:12px;
 }
 
 .menu a{
@@ -56,124 +81,136 @@ text-decoration:none;
 color:white;
 padding:14px;
 border-radius:14px;
+background:#11001f;
 transition:0.3s;
-background:#160326;
+font-weight:500;
+border:1px solid transparent;
 }
 
 .menu a:hover{
-background:#7b2ff7;
+background:#1b0030;
+border:1px solid #a020f0;
 transform:translateX(5px);
-}
-
-.profile{
-margin-top:35px;
-padding:20px;
-background:#160326;
-border-radius:18px;
-border:1px solid #7b2ff7;
-}
-
-.profile h2{
-font-size:20px;
-margin-bottom:10px;
-}
-
-.profile p{
-opacity:0.8;
-margin:6px 0;
+box-shadow:0 0 15px #7b2ff7;
 }
 
 /* MAIN */
 
 .main{
-margin-left:260px;
+margin-left:240px;
 width:100%;
 }
 
 /* HERO */
 
 .hero{
-padding:80px 30px;
+height:500px;
+background:
+linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
+url('https://images.unsplash.com/photo-1511512578047-dfb367046420');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
 text-align:center;
-background:linear-gradient(to bottom,#140022,#07010f);
+padding:20px;
+border-bottom:2px solid #7b2ff7;
 }
 
 .hero h1{
-font-size:70px;
-color:#d9b3ff;
-text-shadow:0 0 30px #7b2ff7;
+font-size:90px;
+font-family:'Orbitron',sans-serif;
+color:#f1d4ff;
+text-shadow:
+0 0 10px #7b2ff7,
+0 0 20px #7b2ff7,
+0 0 40px #7b2ff7;
 }
 
 .hero p{
-margin-top:15px;
+margin-top:10px;
 font-size:20px;
+letter-spacing:3px;
 opacity:0.8;
 }
 
-.buttons{
-margin-top:30px;
+.hero-buttons{
+margin-top:35px;
 display:flex;
-justify-content:center;
-gap:15px;
+gap:20px;
 flex-wrap:wrap;
 }
 
-.buttons a{
-padding:14px 28px;
-background:#7b2ff7;
-border-radius:14px;
+.hero-buttons a{
+padding:16px 35px;
 text-decoration:none;
 color:white;
+border-radius:14px;
 font-weight:600;
 transition:0.3s;
+border:1px solid #a020f0;
+background:#7b2ff7;
+box-shadow:0 0 20px rgba(123,47,247,0.5);
 }
 
-.buttons a:hover{
+.hero-buttons a:hover{
 transform:scale(1.05);
-background:#9b59ff;
+background:#9d4dff;
 }
 
-/* SECTION */
+/* TITLE */
 
-.section-title{
-font-size:35px;
-margin:50px 30px 25px;
-color:#c084ff;
+.title{
+font-family:'Orbitron',sans-serif;
+font-size:40px;
+text-align:center;
+margin:50px 0 30px;
+color:#d7a7ff;
 }
 
 /* STATS */
 
 .stats{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 padding:0 30px;
 }
 
-.card{
-background:#120020;
-padding:30px;
-border-radius:22px;
+.stat-box{
+background:#0e0019;
 border:1px solid #7b2ff7;
+border-radius:24px;
+padding:35px;
 text-align:center;
 box-shadow:0 0 20px rgba(123,47,247,0.2);
+transition:0.3s;
 }
 
-.card h2{
-margin-bottom:10px;
+.stat-box:hover{
+transform:translateY(-8px);
+box-shadow:0 0 30px #7b2ff7;
 }
 
-.card p{
-font-size:40px;
+.stat-box h2{
+margin-bottom:15px;
+font-size:20px;
+}
+
+.stat-box p{
+font-size:50px;
 font-weight:700;
-color:#d9b3ff;
+color:#d7a7ff;
+font-family:'Orbitron',sans-serif;
 }
 
-/* SLIDER */
+/* VIDEO SLIDER */
 
 .slider{
 display:flex;
-gap:20px;
+gap:25px;
 overflow-x:auto;
 padding:20px 30px 40px;
 scroll-behavior:smooth;
@@ -189,9 +226,9 @@ border-radius:20px;
 }
 
 .video-card{
-min-width:300px;
-background:#120020;
-border-radius:22px;
+min-width:320px;
+background:#0e0019;
+border-radius:24px;
 overflow:hidden;
 border:1px solid #7b2ff7;
 flex-shrink:0;
@@ -199,12 +236,13 @@ transition:0.3s;
 }
 
 .video-card:hover{
-transform:translateY(-8px);
+transform:translateY(-10px);
+box-shadow:0 0 25px #7b2ff7;
 }
 
 .video-card img{
 width:100%;
-height:190px;
+height:220px;
 object-fit:cover;
 }
 
@@ -213,52 +251,73 @@ padding:20px;
 }
 
 .video-content h3{
+font-size:24px;
 margin-bottom:10px;
 }
 
-.watch{
+.video-content p{
+opacity:0.8;
+}
+
+.watch-btn{
 display:inline-block;
-margin-top:15px;
+margin-top:18px;
 padding:12px 20px;
 background:#7b2ff7;
-border-radius:12px;
-text-decoration:none;
 color:white;
+text-decoration:none;
+border-radius:12px;
 }
 
 /* CHALLENGE */
 
 .challenge{
-margin:30px;
-background:#120020;
+margin:40px 30px;
+background:#0e0019;
+border-radius:30px;
 padding:40px;
-border-radius:25px;
 border:1px solid #7b2ff7;
 text-align:center;
 }
 
+.challenge h2{
+font-family:'Orbitron',sans-serif;
+font-size:45px;
+color:#d7a7ff;
+}
+
+.challenge p{
+margin-top:10px;
+font-size:20px;
+}
+
 .bar{
-height:25px;
-background:#2a1240;
+width:100%;
+height:28px;
+background:#24003b;
 border-radius:30px;
+margin-top:25px;
 overflow:hidden;
-margin-top:20px;
 }
 
 .progress{
-height:100%;
 width:72%;
-background:#b266ff;
+height:100%;
+background:linear-gradient(to right,#7b2ff7,#d946ef);
 }
 
 /* FOOTER */
 
 footer{
-margin-top:60px;
+margin-top:70px;
 padding:40px;
 text-align:center;
 border-top:1px solid #7b2ff7;
-background:#0f051d;
+background:#090012;
+}
+
+footer p{
+margin:10px 0;
 }
 
 /* MOBILE */
@@ -281,21 +340,35 @@ border-bottom:1px solid #7b2ff7;
 margin-left:0;
 }
 
+.hero{
+height:auto;
+padding:80px 20px;
+}
+
 .hero h1{
-font-size:45px;
+font-size:50px;
+}
+
+.title{
+font-size:28px;
 }
 
 }
 
 </style>
 </head>
+
 <body>
 
 <!-- SIDEBAR -->
 
 <div class="sidebar">
 
-<div class="logo">PHUNAEIEI</div>
+<div class="logo-box">
+<img src="https://i.imgur.com/8Km9tLL.png">
+<h1>PHUNAEIEI</h1>
+<p>Minecraft Creator</p>
+</div>
 
 <div class="menu">
 <a href="#">🏠 HOME</a>
@@ -307,54 +380,53 @@ font-size:45px;
 <a href="#">▶️ YOUTUBE</a>
 </div>
 
-<div class="profile">
-<h2>👤 PHUNAEIEI</h2>
-<p>Minecraft Creator</p>
-<p>Followers : 120K</p>
-<p>Views : 9.4M</p>
-</div>
-
 </div>
 
 <!-- MAIN -->
 
 <div class="main">
 
+<!-- HERO -->
+
 <section class="hero">
 
 <h1>PHUNAEIEI</h1>
 
-<p>Minecraft Creator & Mod Review</p>
+<p>MINECRAFT CREATOR & GAMING</p>
 
-<div class="buttons">
+<div class="hero-buttons">
 <a href="#">WATCH VIDEOS</a>
-<a href="#">TIKTOK</a>
+<a href="#">FOLLOW TIKTOK</a>
 </div>
 
 </section>
 
-<h2 class="section-title">📊 STATS</h2>
+<!-- STATS -->
+
+<h2 class="title">STATS</h2>
 
 <div class="stats">
 
-<div class="card">
-<h2>Followers</h2>
+<div class="stat-box">
+<h2>FOLLOWERS</h2>
 <p>120K</p>
 </div>
 
-<div class="card">
-<h2>Videos</h2>
+<div class="stat-box">
+<h2>VIDEOS</h2>
 <p>157</p>
 </div>
 
-<div class="card">
-<h2>Total Views</h2>
+<div class="stat-box">
+<h2>TOTAL VIEWS</h2>
 <p>9.4M</p>
 </div>
 
 </div>
 
-<h2 class="section-title">🎥 LATEST VIDEOS</h2>
+<!-- VIDEOS -->
+
+<h2 class="title">LATEST VIDEOS</h2>
 
 <div class="slider">
 
@@ -363,16 +435,16 @@ font-size:45px;
 <div class="video-content">
 <h3>1 DAY 1 MOD</h3>
 <p>Minecraft Bedrock Review</p>
-<a class="watch" href="#">WATCH</a>
+<a href="#" class="watch-btn">WATCH NOW</a>
 </div>
 </div>
 
 <div class="video-card">
 <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420">
 <div class="video-content">
-<h3>SCARIEST HORROR MOD</h3>
+<h3>HORROR MOD</h3>
 <p>100 Days Survival</p>
-<a class="watch" href="#">WATCH</a>
+<a href="#" class="watch-btn">WATCH NOW</a>
 </div>
 </div>
 
@@ -380,8 +452,8 @@ font-size:45px;
 <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8">
 <div class="video-content">
 <h3>BEST PVP MODS</h3>
-<p>Top Minecraft Packs</p>
-<a class="watch" href="#">WATCH</a>
+<p>Texture Pack Review</p>
+<a href="#" class="watch-btn">WATCH NOW</a>
 </div>
 </div>
 
@@ -390,15 +462,17 @@ font-size:45px;
 <div class="video-content">
 <h3>LIVE STREAM</h3>
 <p>7 Days Challenge</p>
-<a class="watch" href="#">WATCH</a>
+<a href="#" class="watch-btn">WATCH NOW</a>
 </div>
 </div>
 
 </div>
+
+<!-- CHALLENGE -->
 
 <div class="challenge">
 
-<h2>🔥 7 DAYS STREAMING</h2>
+<h2>7 DAYS STREAMING</h2>
 
 <p>Goal : 100K Followers</p>
 
@@ -410,12 +484,17 @@ font-size:45px;
 
 </div>
 
+<!-- FOOTER -->
+
 <footer>
 
-TikTok : @phunaeiei3
-<br><br>
+<p>TikTok : @phunaeiei3</p>
+<p>YouTube : PHUNAEIEI</p>
+<p>Discord : Coming Soon</p>
 
-© PHUNAEIEI 2026
+<br>
+
+<p>© PHUNAEIEI 2026</p>
 
 </footer>
 
