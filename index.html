@@ -9,7 +9,8 @@
 
 <style>
 
-/* RESET */
+/* ================= RESET ================= */
+
 *{
 margin:0;
 padding:0;
@@ -23,7 +24,8 @@ font-family:'Poppins',sans-serif;
 overflow-x:hidden;
 }
 
-/* STAR */
+/* ================= STAR ================= */
+
 #stars{
 position:fixed;
 top:0;
@@ -33,7 +35,8 @@ height:100%;
 z-index:-1;
 }
 
-/* NAV */
+/* ================= NAVBAR ================= */
+
 .navbar{
 position:fixed;
 top:0;
@@ -45,6 +48,7 @@ align-items:center;
 padding:10px 15px;
 background:rgba(0,0,0,0.6);
 border-bottom:1px solid #8b2cff;
+backdrop-filter:blur(10px);
 z-index:9999;
 }
 
@@ -55,32 +59,35 @@ gap:10px;
 }
 
 .logo-p{
-width:38px;
-height:38px;
+width:36px;
+height:36px;
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 background:#140022;
 border:2px solid #8b2cff;
 border-radius:10px;
-font-family:Orbitron;
+font-family:'Orbitron';
+font-size:14px;
+}
+
+/* TOP NAME */
+.nav-left h1{
+font-size:14px;
+font-family:'Orbitron';
+font-weight:600;
+letter-spacing:1px;
 }
 
 /* ☰ */
 .menu-toggle{
-font-size:26px;
+font-size:24px;
 cursor:pointer;
-position:relative;
 z-index:10000;
 }
 
-/* HEADER TEXT FIX (14–16px) */
-.nav-left h1{
-font-size:16px;
-font-family:Orbitron;
-}
+/* ================= MENU ================= */
 
-/* OVERLAY */
 .overlay{
 position:fixed;
 top:0;
@@ -91,9 +98,11 @@ background:rgba(0,0,0,0.5);
 display:none;
 z-index:9998;
 }
-.overlay.active{display:block;}
 
-/* MENU */
+.overlay.active{
+display:block;
+}
+
 .side-menu{
 position:fixed;
 top:0;
@@ -109,38 +118,40 @@ gap:12px;
 transition:0.3s;
 z-index:9999;
 }
-.side-menu.active{right:0;}
+
+.side-menu.active{
+right:0;
+}
 
 .side-menu a{
 color:white;
 text-decoration:none;
-padding:10px;
+padding:12px;
 background:#140022;
-border-radius:10px;
 border:1px solid #8b2cff;
+border-radius:12px;
 }
 
-/* MENU HEADER */
 .menu-header{
 text-align:center;
-font-family:Orbitron;
-color:#d9b3ff;
-border-bottom:1px solid #8b2cff;
-padding-bottom:8px;
+font-family:'Orbitron';
 margin-bottom:10px;
+padding-bottom:10px;
+border-bottom:1px solid #8b2cff;
+color:#d9b3ff;
 }
 
-/* MENU FOOTER © */
 .menu-footer{
 margin-top:auto;
 text-align:center;
 font-size:12px;
 opacity:0.7;
-border-top:1px solid #8b2cff;
 padding-top:10px;
+border-top:1px solid #8b2cff;
 }
 
-/* HERO */
+/* ================= HERO ================= */
+
 .hero{
 height:100vh;
 display:flex;
@@ -155,83 +166,229 @@ padding:0 15px;
 width:85px;
 height:85px;
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 background:#140022;
 border:2px solid #8b2cff;
-border-radius:18px;
-font-family:Orbitron;
+border-radius:20px;
 font-size:34px;
-box-shadow:0 0 20px #8b2cff;
+font-family:'Orbitron';
+box-shadow:0 0 25px #8b2cff;
 }
 
 .hero h2{
-font-family:Orbitron;
-font-size:clamp(28px,6vw,60px);
+font-family:'Orbitron';
+font-size:clamp(34px,7vw,60px);
+margin-top:15px;
 }
 
-/* MID TEXT */
 .mid-text{
 margin-top:10px;
-font-size:12px;
+font-size:11px;
 letter-spacing:3px;
 opacity:0.6;
 }
 
-/* LIVE */
+/* ================= LIVE ================= */
+
 .live-card{
-margin-top:15px;
-padding:8px 14px;
+margin-top:18px;
+padding:10px 16px;
 border:1px solid #8b2cff;
-border-radius:10px;
-background:rgba(20,0,34,0.5);
-}
-
-/* STATS */
-.section-title{
-text-align:center;
-margin:40px 0 15px;
-font-family:Orbitron;
-}
-
-.stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-gap:12px;
-padding:15px;
-}
-
-.stat-box{
-background:#0d0018;
-border:1px solid #8b2cff;
-padding:18px;
 border-radius:14px;
-text-align:center;
-}
-
-.stat-box p{
-font-size:28px;
-font-family:Orbitron;
-}
-
-/* FOOTER */
-footer{
-text-align:center;
-padding:25px;
-border-top:1px solid #8b2cff;
-margin-top:20px;
-}
-
-/* 📱 MOBILE FIX */
-@media (max-width:768px){
-
-.nav-left h1{
+background:rgba(20,0,34,0.5);
 font-size:14px;
 }
 
-.menu-toggle{
-font-size:24px;
+/* ================= TITLES ================= */
+
+.section-title{
+text-align:center;
+font-family:'Orbitron';
+margin:35px 0 20px;
+font-size:20px;
+letter-spacing:2px;
 }
+
+/* ================= STATS ================= */
+
+.stats-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+padding:15px;
+}
+
+.stat-card{
+background:rgba(15,0,30,0.95);
+border:1px solid #8b2cff;
+border-radius:20px;
+padding:22px 15px;
+text-align:center;
+box-shadow:0 0 20px rgba(139,44,255,0.12);
+}
+
+.icon{
+font-size:30px;
+margin-bottom:10px;
+}
+
+.stat-card h3{
+font-size:12px;
+letter-spacing:2px;
+opacity:0.7;
+margin-bottom:8px;
+}
+
+.stat-card p{
+font-size:30px;
+font-family:'Orbitron';
+font-weight:700;
+}
+
+/* ================= BOXES ================= */
+
+.support-box,
+.goal-box,
+.activity-box,
+.social-box{
+margin:15px;
+padding:22px;
+background:rgba(15,0,30,0.95);
+border:1px solid #8b2cff;
+border-radius:22px;
+box-shadow:0 0 20px rgba(139,44,255,0.12);
+}
+
+.support-box h2,
+.goal-box h2,
+.activity-box h2,
+.social-box h2{
+font-family:'Orbitron';
+font-size:18px;
+margin-bottom:15px;
+}
+
+/* ================= DONATE ================= */
+
+.support-box p{
+font-size:14px;
+opacity:0.8;
+margin-bottom:18px;
+}
+
+.donate-btn{
+display:block;
+text-align:center;
+padding:15px;
+background:#8b2cff;
+color:white;
+text-decoration:none;
+border-radius:15px;
+font-weight:700;
+box-shadow:0 0 20px rgba(139,44,255,0.5);
+transition:0.3s;
+}
+
+.donate-btn:hover{
+transform:scale(1.02);
+}
+
+.donate-links{
+display:flex;
+gap:10px;
+margin-top:16px;
+}
+
+.donate-mini{
+flex:1;
+background:#140022;
+border:1px solid #8b2cff;
+padding:10px;
+text-align:center;
+border-radius:12px;
+font-size:12px;
+}
+
+/* ================= GOAL ================= */
+
+.goal-top{
+display:flex;
+justify-content:space-between;
+margin-bottom:10px;
+font-size:14px;
+}
+
+.goal-bar{
+height:14px;
+background:#1d0b30;
+border-radius:20px;
+overflow:hidden;
+}
+
+.goal-progress{
+width:25%;
+height:100%;
+background:#8b2cff;
+box-shadow:0 0 15px #8b2cff;
+}
+
+.goal-text{
+margin-top:12px;
+font-size:13px;
+opacity:0.7;
+text-align:center;
+}
+
+/* ================= ACTIVITY ================= */
+
+.activity-item{
+display:flex;
+justify-content:space-between;
+padding:14px 0;
+border-bottom:1px solid rgba(255,255,255,0.08);
+font-size:13px;
+}
+
+.activity-item:last-child{
+border:none;
+}
+
+/* ================= SOCIAL ================= */
+
+.social-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+
+.social-btn{
+display:flex;
+justify-content:center;
+align-items:center;
+padding:14px;
+background:#140022;
+border:1px solid #8b2cff;
+border-radius:14px;
+text-decoration:none;
+color:white;
+font-weight:600;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+text-align:center;
+padding:30px;
+margin-top:20px;
+border-top:1px solid #8b2cff;
+font-size:13px;
+opacity:0.8;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
 
 .hero h2{
 font-size:34px;
@@ -243,13 +400,15 @@ height:70px;
 font-size:28px;
 }
 
-.stat-box p{
+.stat-card p{
 font-size:24px;
 }
 
-.mid-text{
-font-size:10px;
-letter-spacing:2px;
+.support-box,
+.goal-box,
+.activity-box,
+.social-box{
+padding:18px;
 }
 
 }
@@ -262,7 +421,7 @@ letter-spacing:2px;
 <!-- STAR -->
 <canvas id="stars"></canvas>
 
-<!-- NAV -->
+<!-- NAVBAR -->
 <div class="navbar">
 
 <div class="nav-left">
@@ -274,19 +433,21 @@ letter-spacing:2px;
 
 </div>
 
-<!-- OVERLAY -->
+<!-- MENU -->
 <div class="overlay" id="overlay" onclick="closeMenu()"></div>
 
-<!-- MENU -->
 <div class="side-menu" id="menu">
 
 <div class="menu-header">MENU</div>
 
-<a href="#home">HOME</a>
-<a href="#stats">STATS</a>
-<a href="#profile">PROFILE</a>
+<a href="#">HOME</a>
+<a href="#">STATS</a>
+<a href="#">SUPPORT</a>
+<a href="#">SOCIAL</a>
 
-<div class="menu-footer">© PHUNAEIEI 2026</div>
+<div class="menu-footer">
+© PHUNAEIEI 2026
+</div>
 
 </div>
 
@@ -297,10 +458,12 @@ letter-spacing:2px;
 
 <h2>PHUNAEIEI</h2>
 
-<div class="mid-text">CREATOR • MODS • LIVE STREAM</div>
+<div class="mid-text">
+CREATOR • MODS • LIVE STREAM
+</div>
 
 <div class="live-card">
-🔥 LIVE • <span id="followers">176</span> Followers
+🔥 LIVE • <span id="followers">180</span> Followers
 </div>
 
 </section>
@@ -308,33 +471,126 @@ letter-spacing:2px;
 <!-- STATS -->
 <h2 class="section-title">STATS</h2>
 
-<div class="stats">
+<div class="stats-grid">
 
-<div class="stat-box">
+<div class="stat-card">
+<div class="icon">👥</div>
 <h3>FOLLOWERS</h3>
-<p id="followers2">173</p>
+<p id="followers2">180</p>
 </div>
 
-<div class="stat-box">
+<div class="stat-card">
+<div class="icon">▶</div>
 <h3>VIDEOS</h3>
 <p>6</p>
 </div>
 
-<div class="stat-box">
+<div class="stat-card">
+<div class="icon">👁</div>
 <h3>VIEWS</h3>
 <p>10K</p>
+</div>
+
+<div class="stat-card">
+<div class="icon">💸</div>
+<h3>DONATIONS</h3>
+<p>฿230</p>
+</div>
+
+</div>
+
+<!-- SUPPORT -->
+<div class="support-box">
+
+<h2>SUPPORT ME</h2>
+
+<p>สนับสนุนผมได้ที่นี่ 💜</p>
+
+<a href="https://tipme.in.th/phunaeiei3"
+target="_blank"
+class="donate-btn">
+
+💜 DONATE NOW
+
+</a>
+
+<div class="donate-links">
+
+<div class="donate-mini">TIPME</div>
+<div class="donate-mini">TRUEWALLET</div>
+<div class="donate-mini">QR CODE</div>
+
+</div>
+
+</div>
+
+<!-- GOAL -->
+<div class="goal-box">
+
+<h2>GOAL SUPPORT</h2>
+
+<div class="goal-top">
+<span>฿0 / ฿1,000</span>
+<span>25%</span>
+</div>
+
+<div class="goal-bar">
+<div class="goal-progress"></div>
+</div>
+
+<p class="goal-text">
+ขอบคุณทุกการสนับสนุน 💜
+</p>
+
+</div>
+
+<!-- ACTIVITY -->
+<div class="activity-box">
+
+<h2>RECENT ACTIVITY</h2>
+
+<div class="activity-item">
+<span>👤 New Follower</span>
+<b>1 minute ago</b>
+</div>
+
+<div class="activity-item">
+<span>💸 Donation +฿10</span>
+<b>3 minutes ago</b>
+</div>
+
+<div class="activity-item">
+<span>👤 New Follower</span>
+<b>5 minutes ago</b>
+</div>
+
+</div>
+
+<!-- SOCIAL -->
+<div class="social-box">
+
+<h2>FOLLOW ME</h2>
+
+<div class="social-grid">
+
+<a href="#" class="social-btn">TikTok</a>
+<a href="#" class="social-btn">YouTube</a>
+<a href="#" class="social-btn">Discord</a>
+<a href="#" class="social-btn">Instagram</a>
+
 </div>
 
 </div>
 
 <!-- FOOTER -->
 <footer>
-<p>@phunaeiei3</p>
+@phunaeiei3
 </footer>
 
 <script>
 
 /* MENU */
+
 const menu=document.getElementById("menu");
 const overlay=document.getElementById("overlay");
 
@@ -348,44 +604,66 @@ menu.classList.remove("active");
 overlay.classList.remove("active");
 }
 
-/* FOLLOWERS LIVE */
-let base=176;
-let f=176;
+/* FOLLOWERS */
+
+let base=180;
+let f=180;
 
 setInterval(()=>{
+
 f += Math.floor(Math.random()*3)-1;
 
-if(f > base + 1) f = base + 1;
-if(f < base - 1) f = base - 1;
+if(f > base + 6) f = base + 6;
+if(f < base - 6) f = base - 6;
 
 document.getElementById("followers").innerText=f;
 document.getElementById("followers2").innerText=f;
 
 },900);
 
-/* STAR */
+/* STARS */
+
 const c=document.getElementById("stars");
 const x=c.getContext("2d");
-c.width=innerWidth;
-c.height=innerHeight;
 
-let s=[];
+c.width=window.innerWidth;
+c.height=window.innerHeight;
+
+let stars=[];
+
 for(let i=0;i<120;i++){
-s.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.5});
+stars.push({
+x:Math.random()*c.width,
+y:Math.random()*c.height,
+r:Math.random()*1.5
+});
 }
 
 function draw(){
+
 x.clearRect(0,0,c.width,c.height);
+
 x.fillStyle="white";
-for(let i of s){
+
+for(let s of stars){
+
 x.beginPath();
-x.arc(i.x,i.y,i.r,0,Math.PI*2);
+x.arc(s.x,s.y,s.r,0,Math.PI*2);
 x.fill();
-i.y+=0.6;
-if(i.y>c.height)i.y=0;
+
+s.y += 0.6;
+
+if(s.y > c.height){
+s.y = 0;
+s.x = Math.random()*c.width;
 }
+
+}
+
 requestAnimationFrame(draw);
+
 }
+
 draw();
 
 </script>
