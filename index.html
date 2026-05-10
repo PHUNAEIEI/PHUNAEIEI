@@ -40,7 +40,7 @@ background:
 radial-gradient(circle at top,#2d0050 0%,#12001f 35%,#05010b 100%);
 }
 
-/* ================= PURPLE GLOW ================= */
+/* ================= GLOW ================= */
 
 .glow{
 position:absolute;
@@ -100,9 +100,43 @@ transform:translate(0,0) scale(1);
 
 }
 
-/* ================= BLACK HOLE ================= */
+/* ================= GALAXY ================= */
 
-.black-hole{
+.galaxy{
+position:absolute;
+
+/* อยู่ขอบขวาบนแทนกลางจอ */
+
+top:-120px;
+right:-120px;
+
+width:420px;
+height:420px;
+
+border-radius:50%;
+
+background:
+radial-gradient(circle,
+rgba(255,255,255,0.12) 0%,
+rgba(180,120,255,0.15) 10%,
+rgba(139,44,255,0.18) 25%,
+rgba(80,20,160,0.12) 45%,
+transparent 70%
+);
+
+filter:blur(1px);
+
+animation:galaxySpin 40s linear infinite;
+
+opacity:0.5;
+}
+
+/* RINGS */
+
+.galaxy::before,
+.galaxy::after{
+content:'';
+
 position:absolute;
 
 top:50%;
@@ -110,55 +144,31 @@ left:50%;
 
 transform:translate(-50%,-50%);
 
-width:220px;
-height:220px;
-
 border-radius:50%;
 
-background:radial-gradient(
-circle,
-#000 25%,
-#12001f 45%,
-#6d28ff 70%,
-transparent 100%
-);
+border:2px solid rgba(180,120,255,0.15);
 
-box-shadow:
-0 0 40px #6d28ff,
-0 0 100px rgba(139,44,255,0.5);
-
-animation:spin 18s linear infinite;
-
-opacity:0.45;
 }
 
-/* OUTER RING */
+.galaxy::before{
+width:300px;
+height:300px;
 
-.black-hole::before{
-content:'';
-
-position:absolute;
-
-top:-18px;
-left:-18px;
-
-width:256px;
-height:256px;
-
-border-radius:50%;
-
-border:3px solid rgba(180,120,255,0.25);
-
-filter:blur(2px);
-
-animation:spinReverse 12s linear infinite;
+animation:galaxySpinReverse 25s linear infinite;
 }
 
-/* INNER GLOW */
+.galaxy::after{
+width:180px;
+height:180px;
 
-.black-hole::after{
-content:'';
+border-color:rgba(255,255,255,0.18);
 
+animation:galaxySpin 12s linear infinite;
+}
+
+/* CORE */
+
+.galaxy-core{
 position:absolute;
 
 top:50%;
@@ -171,17 +181,19 @@ height:70px;
 
 border-radius:50%;
 
-background:#000;
+background:white;
 
 box-shadow:
-0 0 30px #8b2cff,
-0 0 60px #b86cff;
+0 0 25px white,
+0 0 60px #b86cff,
+0 0 120px #8b2cff;
 
+opacity:0.9;
 }
 
 /* ANIMATION */
 
-@keyframes spin{
+@keyframes galaxySpin{
 
 from{
 transform:translate(-50%,-50%) rotate(0deg);
@@ -193,14 +205,14 @@ transform:translate(-50%,-50%) rotate(360deg);
 
 }
 
-@keyframes spinReverse{
+@keyframes galaxySpinReverse{
 
 from{
-transform:rotate(360deg);
+transform:translate(-50%,-50%) rotate(360deg);
 }
 
 to{
-transform:rotate(0deg);
+transform:translate(-50%,-50%) rotate(0deg);
 }
 
 }
@@ -269,14 +281,12 @@ font-family:'Orbitron';
 letter-spacing:1px;
 }
 
-/* ================= MENU BUTTON ================= */
-
 .menu-toggle{
 font-size:26px;
 cursor:pointer;
 }
 
-/* ================= FULLSCREEN MENU ================= */
+/* ================= MENU ================= */
 
 .fullscreen-menu{
 position:fixed;
@@ -306,8 +316,6 @@ z-index:99999;
 opacity:1;
 pointer-events:auto;
 }
-
-/* MENU TOP */
 
 .menu-top{
 display:flex;
@@ -341,8 +349,6 @@ font-size:32px;
 cursor:pointer;
 }
 
-/* MENU TITLE */
-
 .menu-title{
 font-family:'Orbitron';
 font-size:30px;
@@ -350,15 +356,11 @@ letter-spacing:4px;
 margin-bottom:25px;
 }
 
-/* MENU GRID */
-
 .menu-grid{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:16px;
 }
-
-/* MENU CARD */
 
 .menu-card{
 height:120px;
@@ -394,8 +396,6 @@ font-size:13px;
 letter-spacing:2px;
 font-weight:600;
 }
-
-/* MENU FOOTER */
 
 .menu-footer{
 margin-top:auto;
@@ -475,7 +475,7 @@ box-shadow:0 0 20px rgba(139,44,255,0.2);
 font-size:14px;
 }
 
-/* ================= TITLES ================= */
+/* ================= STATS ================= */
 
 .section-title{
 text-align:center;
@@ -487,8 +487,6 @@ margin:10px 0 20px;
 font-size:20px;
 letter-spacing:2px;
 }
-
-/* ================= STATS ================= */
 
 .stats-grid{
 display:grid;
@@ -512,290 +510,16 @@ text-align:center;
 box-shadow:0 0 20px rgba(139,44,255,0.12);
 }
 
-.ui-icon{
-width:52px;
-height:52px;
-
-margin:0 auto 12px;
-
-border-radius:14px;
-
-background:#140022;
-border:1px solid #8b2cff;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-position:relative;
-}
-
-/* FOLLOWERS */
-
-.followers-ui::before,
-.followers-ui::after{
-content:'';
-position:absolute;
-background:#b86cff;
-border-radius:50%;
-}
-
-.followers-ui::before{
-width:14px;
-height:14px;
-top:10px;
-}
-
-.followers-ui::after{
-width:22px;
-height:12px;
-bottom:10px;
-border-radius:10px;
-}
-
-/* VIDEO */
-
-.video-ui::before{
-content:'';
-
-width:0;
-height:0;
-
-border-top:10px solid transparent;
-border-bottom:10px solid transparent;
-border-left:16px solid #b86cff;
-
-margin-left:4px;
-}
-
-/* VIEW */
-
-.views-ui::before{
-content:'';
-
-width:26px;
-height:16px;
-
-border:2px solid #b86cff;
-border-radius:20px;
-
-position:absolute;
-}
-
-.views-ui::after{
-content:'';
-
-width:8px;
-height:8px;
-
-background:#b86cff;
-border-radius:50%;
-
-position:absolute;
-}
-
-/* DONATE */
-
-.donate-ui::before{
-content:'';
-
-width:22px;
-height:22px;
-
-background:#b86cff;
-
-transform:rotate(45deg);
-
-border-radius:4px;
-
-position:absolute;
-}
-
 .stat-card h3{
 font-size:12px;
-
 letter-spacing:2px;
-
 opacity:0.7;
-
 margin-bottom:8px;
 }
 
 .stat-card p{
 font-size:30px;
 font-family:'Orbitron';
-}
-
-/* ================= SUPPORT BOX ================= */
-
-.support-box,
-.goal-box,
-.activity-box,
-.social-box{
-margin:15px;
-
-padding:22px;
-
-background:rgba(15,0,30,0.95);
-
-border:1px solid #8b2cff;
-border-radius:22px;
-
-box-shadow:0 0 20px rgba(139,44,255,0.12);
-}
-
-.support-box h2,
-.goal-box h2,
-.activity-box h2,
-.social-box h2{
-font-family:'Orbitron';
-
-margin-bottom:14px;
-
-font-size:18px;
-}
-
-/* ================= DONATE ================= */
-
-.support-box p{
-opacity:0.8;
-font-size:14px;
-
-margin-bottom:18px;
-}
-
-.donate-btn{
-display:block;
-
-text-align:center;
-
-padding:15px;
-
-border-radius:15px;
-
-background:#8b2cff;
-
-color:white;
-text-decoration:none;
-
-font-weight:700;
-
-box-shadow:0 0 20px rgba(139,44,255,0.5);
-}
-
-/* DONATE MINI */
-
-.donate-links{
-display:flex;
-gap:10px;
-
-margin-top:16px;
-}
-
-.donate-mini{
-flex:1;
-
-padding:10px 6px;
-
-text-align:center;
-
-background:#140022;
-
-border:1px solid #8b2cff;
-border-radius:12px;
-
-font-size:11px;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-min-height:74px;
-}
-
-/* ================= GOAL ================= */
-
-.goal-top{
-display:flex;
-justify-content:space-between;
-
-font-size:14px;
-
-margin-bottom:10px;
-}
-
-.goal-bar{
-height:16px;
-
-background:#1c0c2d;
-
-border-radius:20px;
-overflow:hidden;
-}
-
-.goal-progress{
-width:0%;
-height:100%;
-
-background:linear-gradient(
-90deg,
-#8b2cff,
-#b86cff
-);
-
-box-shadow:0 0 14px #8b2cff;
-}
-
-.goal-text{
-margin-top:12px;
-
-font-size:13px;
-
-opacity:0.7;
-
-text-align:center;
-}
-
-/* ================= ACTIVITY ================= */
-
-.activity-item{
-display:flex;
-justify-content:space-between;
-
-padding:14px 0;
-
-border-bottom:1px solid rgba(255,255,255,0.08);
-
-font-size:13px;
-}
-
-.activity-item:last-child{
-border:none;
-}
-
-/* ================= SOCIAL ================= */
-
-.social-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-
-gap:12px;
-}
-
-.social-btn{
-padding:14px;
-
-text-align:center;
-
-text-decoration:none;
-color:white;
-
-background:#140022;
-
-border:1px solid #8b2cff;
-border-radius:14px;
-
-font-weight:600;
 }
 
 /* ================= FOOTER ================= */
@@ -816,6 +540,16 @@ font-size:13px;
 /* ================= MOBILE ================= */
 
 @media(max-width:768px){
+
+.galaxy{
+width:300px;
+height:300px;
+
+top:-80px;
+right:-80px;
+
+opacity:0.45;
+}
 
 .hero h2{
 font-size:34px;
@@ -856,7 +590,11 @@ width:0;
 <div class="glow glow2"></div>
 <div class="glow glow3"></div>
 
-<div class="black-hole"></div>
+<!-- GALAXY -->
+
+<div class="galaxy">
+<div class="galaxy-core"></div>
+</div>
 
 </div>
 
@@ -884,66 +622,6 @@ P
 
 </div>
 
-<!-- ================= MENU ================= -->
-
-<div class="fullscreen-menu" id="menu">
-
-<div class="menu-top">
-
-<div class="menu-logo">
-P
-</div>
-
-<div class="close-btn" onclick="closeMenu()">
-✕
-</div>
-
-</div>
-
-<div class="menu-title">
-MENU
-</div>
-
-<div class="menu-grid">
-
-<a href="#" class="menu-card">
-<div class="menu-icon">⌂</div>
-<span>HOME</span>
-</a>
-
-<a href="#" class="menu-card">
-<div class="menu-icon">★</div>
-<span>STATS</span>
-</a>
-
-<a href="https://ezdn.app/phunaeiei77" class="menu-card">
-<div class="menu-icon">❤</div>
-<span>DONATE</span>
-</a>
-
-<a href="#" class="menu-card">
-<div class="menu-icon">▶</div>
-<span>VIDEOS</span>
-</a>
-
-<a href="#" class="menu-card">
-<div class="menu-icon">☁</div>
-<span>SOCIAL</span>
-</a>
-
-<a href="#" class="menu-card">
-<div class="menu-icon">✦</div>
-<span>LIVE</span>
-</a>
-
-</div>
-
-<div class="menu-footer">
-© PHUNAEIEI 2026
-</div>
-
-</div>
-
 <!-- ================= HERO ================= -->
 
 <section class="hero">
@@ -961,7 +639,7 @@ CREATOR • MODS • LIVE STREAM
 </div>
 
 <div class="live-card">
-🔥 LIVE • <span id="followers">180</span> Followers
+🔥 LIVE • 180 Followers
 </div>
 
 </section>
@@ -975,179 +653,23 @@ STATS
 <div class="stats-grid">
 
 <div class="stat-card">
-
-<div class="ui-icon followers-ui"></div>
-
 <h3>FOLLOWERS</h3>
-
-<p id="followers2">180</p>
-
+<p>180</p>
 </div>
 
 <div class="stat-card">
-
-<div class="ui-icon video-ui"></div>
-
 <h3>VIDEOS</h3>
-
 <p>6</p>
-
 </div>
 
 <div class="stat-card">
-
-<div class="ui-icon views-ui"></div>
-
 <h3>VIEWS</h3>
-
 <p>10K</p>
-
 </div>
 
 <div class="stat-card">
-
-<div class="ui-icon donate-ui"></div>
-
 <h3>DONATIONS</h3>
-
 <p>฿0</p>
-
-</div>
-
-</div>
-
-<!-- ================= SUPPORT ================= -->
-
-<div class="support-box">
-
-<h2>SUPPORT ME</h2>
-
-<p>
-สนับสนุนผมได้ที่นี่
-</p>
-
-<a href="https://ezdn.app/phunaeiei77"
-target="_blank"
-class="donate-btn">
-
-DONATE NOW
-
-</a>
-
-<div class="donate-links">
-
-<div class="donate-mini">
-EASYDONATE
-</div>
-
-<div class="donate-mini">
-LIVE SUPPORT
-</div>
-
-<div class="donate-mini">
-QR CODE
-</div>
-
-</div>
-
-</div>
-
-<!-- ================= GOAL ================= -->
-
-<div class="goal-box">
-
-<h2>GOAL SUPPORT</h2>
-
-<div class="goal-top">
-
-<span>
-฿0 / ฿1,000
-</span>
-
-<span>
-0%
-</span>
-
-</div>
-
-<div class="goal-bar">
-<div class="goal-progress"></div>
-</div>
-
-<p class="goal-text">
-START YOUR SUPPORT GOAL
-</p>
-
-</div>
-
-<!-- ================= ACTIVITY ================= -->
-
-<div class="activity-box">
-
-<h2>RECENT ACTIVITY</h2>
-
-<div class="activity-item">
-
-<span>
-No activity yet
-</span>
-
-<b>
-waiting...
-</b>
-
-</div>
-
-<div class="activity-item">
-
-<span>
-No donations yet
-</span>
-
-<b>
-฿0
-</b>
-
-</div>
-
-<div class="activity-item">
-
-<span>
-New followers coming soon
-</span>
-
-<b>
-...
-</b>
-
-</div>
-
-</div>
-
-<!-- ================= SOCIAL ================= -->
-
-<div class="social-box">
-
-<h2>FOLLOW ME</h2>
-
-<div class="social-grid">
-
-<a href="#" class="social-btn">
-TikTok
-</a>
-
-<a href="#" class="social-btn">
-YouTube
-</a>
-
-<a href="#" class="social-btn">
-Discord
-</a>
-
-<a href="#" class="social-btn">
-Instagram
-</a>
-
 </div>
 
 </div>
@@ -1159,35 +681,6 @@ Instagram
 </footer>
 
 <script>
-
-/* ================= MENU ================= */
-
-const menu=document.getElementById("menu");
-
-function toggleMenu(){
-menu.classList.add("active");
-}
-
-function closeMenu(){
-menu.classList.remove("active");
-}
-
-/* ================= LIVE FOLLOWERS ================= */
-
-let base=180;
-let f=180;
-
-setInterval(()=>{
-
-f += Math.floor(Math.random()*3)-1;
-
-if(f > base + 6) f = base + 6;
-if(f < base - 6) f = base - 6;
-
-document.getElementById("followers").innerText=f;
-document.getElementById("followers2").innerText=f;
-
-},900);
 
 /* ================= STARS ================= */
 
