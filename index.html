@@ -239,7 +239,6 @@ border:1px solid #8b2cff;
 display:flex;
 align-items:center;
 justify-content:center;
-box-shadow:0 0 15px rgba(139,44,255,0.25);
 position:relative;
 }
 
@@ -318,7 +317,7 @@ font-size:30px;
 font-family:'Orbitron';
 }
 
-/* ================= BOXES ================= */
+/* ================= BOX ================= */
 
 .support-box,
 .goal-box,
@@ -359,14 +358,7 @@ color:white;
 text-decoration:none;
 font-weight:700;
 box-shadow:0 0 20px rgba(139,44,255,0.5);
-transition:0.3s;
 }
-
-.donate-btn:hover{
-transform:scale(1.02);
-}
-
-/* 3 ช่อง */
 
 .donate-links{
 display:flex;
@@ -381,18 +373,13 @@ text-align:center;
 background:#140022;
 border:1px solid #8b2cff;
 border-radius:12px;
-
 font-size:11px;
 font-weight:500;
-letter-spacing:0.5px;
 line-height:1.3;
-
 display:flex;
 justify-content:center;
 align-items:center;
-
 min-height:74px;
-word-break:break-word;
 }
 
 /* ================= GOAL ================= */
@@ -405,17 +392,18 @@ margin-bottom:10px;
 }
 
 .goal-bar{
-height:14px;
+height:16px;
 background:#1c0c2d;
 border-radius:20px;
 overflow:hidden;
+border:1px solid rgba(255,255,255,0.05);
 }
 
 .goal-progress{
-width:25%;
+width:0%;
 height:100%;
-background:#8b2cff;
-box-shadow:0 0 12px #8b2cff;
+background:linear-gradient(90deg,#8b2cff,#b86cff);
+box-shadow:0 0 14px #8b2cff;
 }
 
 .goal-text{
@@ -485,13 +473,6 @@ font-size:30px;
 
 .stat-card p{
 font-size:24px;
-}
-
-.support-box,
-.goal-box,
-.activity-box,
-.social-box{
-padding:18px;
 }
 
 }
@@ -614,7 +595,7 @@ EASYDONATE
 </div>
 
 <div class="donate-mini">
-SUPPORT
+LIVE SUPPORT
 </div>
 
 <div class="donate-mini">
@@ -641,7 +622,7 @@ QR CODE
 </div>
 
 <p class="goal-text">
-THANK YOU FOR SUPPORT
+START YOUR SUPPORT GOAL
 </p>
 
 </div>
@@ -653,18 +634,18 @@ THANK YOU FOR SUPPORT
 <h2>RECENT ACTIVITY</h2>
 
 <div class="activity-item">
-<span>New follower</span>
-<b>1 minute ago</b>
+<span>No activity yet</span>
+<b>waiting...</b>
 </div>
 
 <div class="activity-item">
-<span>Donation +฿20</span>
-<b>3 minutes ago</b>
+<span>No donations yet</span>
+<b>฿0</b>
 </div>
 
 <div class="activity-item">
-<span>New follower</span>
-<b>5 minutes ago</b>
+<span>New followers coming soon</span>
+<b>...</b>
 </div>
 
 </div>
