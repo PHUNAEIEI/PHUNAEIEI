@@ -35,7 +35,7 @@ height:100%;
 z-index:-1;
 }
 
-/* NAV */
+/* NAVBAR */
 .navbar{
 position:fixed;
 top:0;
@@ -77,6 +77,7 @@ font-family:'Orbitron';
 font-size:18px;
 }
 
+/* MENU */
 .menu{
 display:flex;
 gap:10px;
@@ -90,6 +91,40 @@ border-radius:8px;
 background:#140022;
 border:1px solid #8b2cff;
 font-size:13px;
+}
+
+/* ☰ */
+.menu-toggle{
+font-size:28px;
+cursor:pointer;
+color:white;
+display:block;
+}
+
+/* mobile menu */
+.mobile-menu{
+position:absolute;
+top:60px;
+right:15px;
+background:#0d0018;
+border:1px solid #8b2cff;
+padding:10px;
+border-radius:12px;
+display:none;
+flex-direction:column;
+gap:8px;
+}
+
+.mobile-menu a{
+color:white;
+text-decoration:none;
+padding:8px;
+background:#140022;
+border-radius:8px;
+}
+
+.show{
+display:flex !important;
 }
 
 /* HERO */
@@ -272,15 +307,19 @@ margin-top:40px;
 <a href="#challenge">CHALLENGE</a>
 </div>
 
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+</div>
+
+<div id="mobileMenu" class="mobile-menu">
+<a href="#home">HOME</a>
+<a href="#stats">STATS</a>
+<a href="#videos">VIDEOS</a>
+<a href="#challenge">CHALLENGE</a>
 </div>
 
 <!-- HERO -->
-<section class="hero" id="home">
-
-<div class="live-wrap">
-<div class="live-dot"></div>
-<div class="live-text">LIVE</div>
-</div>
+<section class="hero">
 
 <div class="logo-big">P</div>
 
@@ -289,13 +328,20 @@ margin-top:40px;
 </section>
 
 <!-- STATS -->
-<h2 class="section-title" id="stats">STATS</h2>
+<h2 class="section-title">STATS</h2>
 
 <div class="stats">
 
 <div class="stat-box">
+
+<div class="live-wrap">
+<div class="live-dot"></div>
+<div class="live-text">LIVE</div>
+</div>
+
 <h3>FOLLOWERS</h3>
 <p id="followers">173</p>
+
 </div>
 
 <div class="stat-box"><h3>VIDEOS</h3><p>6</p></div>
@@ -304,7 +350,7 @@ margin-top:40px;
 </div>
 
 <!-- VIDEOS -->
-<h2 class="section-title" id="videos">VIDEOS</h2>
+<h2 class="section-title">VIDEOS</h2>
 
 <div class="slider">
 
@@ -327,7 +373,7 @@ margin-top:40px;
 </div>
 
 <!-- CHALLENGE -->
-<div class="challenge" id="challenge">
+<div class="challenge">
 <h2>7 DAYS STREAM</h2>
 <div class="bar"><div class="progress"></div></div>
 </div>
@@ -338,7 +384,32 @@ margin-top:40px;
 
 <script>
 
-/* 🌌 STAR */
+/* ☰ MENU */
+function toggleMenu(){
+document.getElementById("mobileMenu").classList.toggle("show");
+}
+
+/* 🔴 FOLLOWERS LIVE */
+let base = 173;
+let followers = 173;
+
+function liveFollowers(){
+
+let change = Math.floor(Math.random()*5)-2;
+followers += change;
+
+// lock around 173
+if(followers > base + 3) followers = base + 3;
+if(followers < base - 3) followers = base - 3;
+
+document.getElementById("followers").innerText = followers;
+
+setTimeout(liveFollowers, 900);
+}
+
+liveFollowers();
+
+/* 🌌 STARS */
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
 
@@ -379,26 +450,6 @@ draw();
 requestAnimationFrame(animate);
 }
 animate();
-
-/* 🔴 LIVE followers (ล็อก 173 ± ขยับเล็กน้อย) */
-let base = 173;
-let followers = 173;
-
-function liveFollowers(){
-
-let change = Math.floor(Math.random()*5) - 2; // -2 ถึง +2
-followers += change;
-
-// 🔒 ล็อกให้อยู่ใกล้ 173
-if(followers > base + 3) followers = base + 3;
-if(followers < base - 3) followers = base - 3;
-
-document.getElementById("followers").innerText = followers;
-
-setTimeout(liveFollowers, 900);
-}
-
-liveFollowers();
 
 </script>
 
