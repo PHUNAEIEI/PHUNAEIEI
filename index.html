@@ -10,7 +10,7 @@
 
 <style>
 
-/* RESET */
+/* ================= RESET ================= */
 *{
 margin:0;
 padding:0;
@@ -25,7 +25,7 @@ font-family:'Poppins',sans-serif;
 overflow-x:hidden;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 .navbar{
 position:fixed;
 top:0;
@@ -47,7 +47,6 @@ align-items:center;
 gap:12px;
 }
 
-/* 🔥 ตัว P แทนรูป */
 .logo-p{
 width:50px;
 height:50px;
@@ -89,7 +88,7 @@ font-size:14px;
 background:#8b2cff;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 .hero{
 height:100vh;
 display:flex;
@@ -103,7 +102,7 @@ url('https://images.unsplash.com/photo-1511512578047-dfb367046420');
 background-size:cover;
 }
 
-/* 🔥 P กลาง + glow */
+/* glow P */
 .glow-wrap{
 position:relative;
 display:inline-block;
@@ -113,10 +112,10 @@ margin-bottom:20px;
 .logo-big{
 width:90px;
 height:90px;
-border-radius:20px;
 display:flex;
 align-items:center;
 justify-content:center;
+border-radius:20px;
 font-family:'Orbitron';
 font-size:40px;
 color:#f2d4ff;
@@ -126,7 +125,6 @@ position:relative;
 z-index:2;
 }
 
-/* glow หมุน */
 .glow-wrap::before{
 content:"";
 position:absolute;
@@ -151,14 +149,13 @@ z-index:1;
 100%{transform:rotate(360deg);}
 }
 
-/* HERO TEXT */
 .hero h2{
 font-size:70px;
 font-family:'Orbitron';
 color:#f2d4ff;
 }
 
-/* SECTION */
+/* ================= SECTION ================= */
 .section-title{
 text-align:center;
 margin:60px 0 20px;
@@ -166,7 +163,7 @@ font-family:'Orbitron';
 color:#f2d4ff;
 }
 
-/* STATS */
+/* ================= STATS ================= */
 .stats{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -188,7 +185,7 @@ font-family:'Orbitron';
 color:#d9b3ff;
 }
 
-/* VIDEOS */
+/* ================= VIDEOS ================= */
 .slider{
 display:flex;
 gap:20px;
@@ -224,7 +221,7 @@ color:white;
 text-decoration:none;
 }
 
-/* CHALLENGE */
+/* ================= CHALLENGE ================= */
 .challenge{
 margin:30px;
 padding:40px;
@@ -248,12 +245,71 @@ height:100%;
 background:#8b2cff;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer{
 text-align:center;
 padding:40px;
 border-top:1px solid #8b2cff;
 margin-top:50px;
+}
+
+/* ================= 📱 MOBILE ================= */
+@media (max-width: 768px){
+
+.navbar{
+flex-direction:column;
+gap:10px;
+padding:12px 15px;
+}
+
+.menu{
+flex-wrap:wrap;
+justify-content:center;
+gap:8px;
+}
+
+.menu a{
+font-size:12px;
+padding:6px 10px;
+}
+
+.hero h2{
+font-size:40px;
+}
+
+.logo-big{
+width:70px;
+height:70px;
+font-size:28px;
+}
+
+.stats{
+grid-template-columns:1fr;
+padding:10px;
+}
+
+.stat-box{
+padding:20px;
+}
+
+.stat-box p{
+font-size:32px;
+}
+
+.slider{
+gap:12px;
+padding:10px;
+}
+
+.video-card{
+min-width:260px;
+}
+
+.challenge{
+margin:15px;
+padding:25px;
+}
+
 }
 
 </style>
