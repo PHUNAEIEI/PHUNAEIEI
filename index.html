@@ -25,7 +25,7 @@ font-family:'Poppins',sans-serif;
 overflow-x:hidden;
 }
 
-/* 🌌 STAR */
+/* 🌌 STAR BACKGROUND */
 canvas{
 position:fixed;
 top:0;
@@ -35,7 +35,7 @@ height:100%;
 z-index:-1;
 }
 
-/* NAVBAR */
+/* NAV */
 .navbar{
 position:fixed;
 top:0;
@@ -77,58 +77,58 @@ font-family:'Orbitron';
 font-size:18px;
 }
 
-/* desktop menu */
-.menu{
-display:flex;
-gap:10px;
-}
-
-.menu a{
-color:white;
-text-decoration:none;
-padding:6px 10px;
-border-radius:8px;
-background:#140022;
-border:1px solid #8b2cff;
-font-size:13px;
-}
-
-/* ☰ FIX */
+/* ☰ */
 .menu-toggle{
 font-size:28px;
 cursor:pointer;
-color:white;
-display:block;
+z-index:10001;
 position:relative;
+}
+
+/* ================= SLIDE MENU ================= */
+.side-menu{
+position:fixed;
+top:0;
+right:-260px;
+width:240px;
+height:100vh;
+background:#0d0018;
+border-left:1px solid #8b2cff;
+padding:20px;
+display:flex;
+flex-direction:column;
+gap:12px;
+transition:0.3s ease;
 z-index:10000;
 }
 
-/* MOBILE MENU FIXED */
-.mobile-menu{
-position:fixed;   /* 🔥 สำคัญ */
-top:60px;
-right:15px;
-background:#0d0018;
-border:1px solid #8b2cff;
-padding:10px;
-border-radius:12px;
-display:none;
-flex-direction:column;
-gap:8px;
-z-index:9999;
-box-shadow:0 0 20px rgba(139,44,255,0.4);
-}
-
-.mobile-menu a{
+.side-menu a{
 color:white;
 text-decoration:none;
-padding:8px;
+padding:10px;
 background:#140022;
 border-radius:8px;
+border:1px solid #8b2cff;
 }
 
-.show{
-display:flex !important;
+.side-menu.active{
+right:0;
+}
+
+/* overlay */
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+display:none;
+z-index:9999;
+}
+
+.overlay.active{
+display:block;
 }
 
 /* HERO */
@@ -159,11 +159,11 @@ font-size:60px;
 font-family:'Orbitron';
 }
 
-/* 🔴 LIVE CENTER FIX */
+/* LIVE */
 .live-wrap{
 display:flex;
 align-items:center;
-justify-content:center; /* 🔥 FIX */
+justify-content:center;
 gap:8px;
 margin-bottom:10px;
 width:100%;
@@ -284,12 +284,6 @@ border-top:1px solid #8b2cff;
 margin-top:40px;
 }
 
-/* MOBILE */
-@media(max-width:768px){
-.menu{display:none;}
-.hero h2{font-size:38px;}
-}
-
 </style>
 </head>
 
@@ -306,23 +300,18 @@ margin-top:40px;
 <h1>PHUNAEIEI</h1>
 </div>
 
-<div class="menu">
-<a href="#home">HOME</a>
-<a href="#stats">STATS</a>
-<a href="#videos">VIDEOS</a>
-<a href="#challenge">CHALLENGE</a>
-</div>
-
 <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
 </div>
 
-<!-- MOBILE MENU -->
-<div id="mobileMenu" class="mobile-menu">
-<a href="#home">HOME</a>
-<a href="#stats">STATS</a>
-<a href="#videos">VIDEOS</a>
-<a href="#challenge">CHALLENGE</a>
+<!-- SLIDE MENU -->
+<div id="overlay" class="overlay" onclick="toggleMenu()"></div>
+
+<div id="sideMenu" class="side-menu">
+<a href="#home" onclick="toggleMenu()">HOME</a>
+<a href="#stats" onclick="toggleMenu()">STATS</a>
+<a href="#videos" onclick="toggleMenu()">VIDEOS</a>
+<a href="#challenge" onclick="toggleMenu()">CHALLENGE</a>
 </div>
 
 <!-- HERO -->
@@ -391,9 +380,10 @@ margin-top:40px;
 
 <script>
 
-/* MENU FIX */
+/* ☰ MENU */
 function toggleMenu(){
-document.getElementById("mobileMenu").classList.toggle("show");
+document.getElementById("sideMenu").classList.toggle("active");
+document.getElementById("overlay").classList.toggle("active");
 }
 
 /* FOLLOWERS LIVE */
@@ -405,7 +395,6 @@ function liveFollowers(){
 let change = Math.floor(Math.random()*5)-2;
 followers += change;
 
-// lock around base
 if(followers > base + 3) followers = base + 3;
 if(followers < base - 3) followers = base - 3;
 
