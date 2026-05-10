@@ -300,7 +300,7 @@ letter-spacing:2px;
 <div class="mid-text">CREATOR • MODS • LIVE STREAM</div>
 
 <div class="live-card">
-🔥 LIVE • <span id="followers">173</span> Followers
+🔥 LIVE • <span id="followers">176</span> Followers
 </div>
 
 </section>
@@ -349,14 +349,14 @@ overlay.classList.remove("active");
 }
 
 /* FOLLOWERS LIVE */
-let base=173;
-let f=173;
+let base=176;
+let f=176;
 
 setInterval(()=>{
 f += Math.floor(Math.random()*3)-1;
 
-if(f > base + 6) f = base + 6;
-if(f < base - 6) f = base - 6;
+if(f > base + 1) f = base + 1;
+if(f < base - 1) f = base - 1;
 
 document.getElementById("followers").innerText=f;
 document.getElementById("followers2").innerText=f;
