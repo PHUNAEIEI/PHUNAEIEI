@@ -72,13 +72,19 @@ background:#140022;
 color:#fff;
 }
 
-/* ☰ */
+/* ☰ BUTTON */
 .menu-toggle{
-font-size:28px;
+font-size:30px;
 cursor:pointer;
 z-index:10001;
-transition:0.2s;
+transition:0.2s ease;
 user-select:none;
+text-shadow:0 0 10px #8b2cff;
+}
+
+.menu-toggle:hover{
+transform:scale(1.1);
+color:#d9b3ff;
 }
 
 /* OVERLAY */
@@ -104,7 +110,7 @@ top:0;
 right:-260px;
 width:240px;
 height:100vh;
-background:#0d0018;
+background:linear-gradient(180deg,#0d0018,#140022);
 border-left:1px solid #8b2cff;
 padding:20px;
 display:flex;
@@ -112,6 +118,7 @@ flex-direction:column;
 gap:12px;
 transition:0.3s ease;
 z-index:9999;
+box-shadow:-15px 0 40px rgba(139,44,255,0.25);
 }
 
 .side-menu.active{
@@ -123,8 +130,35 @@ color:white;
 text-decoration:none;
 padding:10px;
 background:#140022;
-border-radius:8px;
+border-radius:10px;
 border:1px solid #8b2cff;
+transition:0.2s;
+}
+
+.side-menu a:hover{
+background:#8b2cff;
+transform:translateX(5px);
+}
+
+/* MENU HEADER */
+.menu-header{
+font-family:'Orbitron';
+text-align:center;
+font-size:16px;
+color:#d9b3ff;
+padding-bottom:10px;
+border-bottom:1px solid #8b2cff;
+letter-spacing:2px;
+}
+
+/* MENU FOOTER */
+.menu-footer{
+margin-top:auto;
+text-align:center;
+font-size:12px;
+opacity:0.7;
+padding-top:10px;
+border-top:1px solid #8b2cff;
 }
 
 /* HERO */
@@ -148,12 +182,14 @@ font-size:40px;
 font-family:'Orbitron';
 background:#140022;
 border:2px solid #8b2cff;
-box-shadow:0 0 20px #8b2cff;
+box-shadow:0 0 25px #8b2cff;
 }
 
 .hero h2{
-font-size:60px;
+font-size:90px;
 font-family:'Orbitron';
+color:#f2d4ff;
+text-shadow:0 0 15px #8b2cff;
 }
 
 /* LIVE */
@@ -306,10 +342,14 @@ margin-top:40px;
 <!-- SIDE MENU -->
 <div id="sideMenu" class="side-menu">
 
+<div class="menu-header">MENU</div>
+
 <a href="#home" onclick="closeMenu()">HOME</a>
 <a href="#stats" onclick="closeMenu()">STATS</a>
 <a href="#videos" onclick="closeMenu()">VIDEOS</a>
 <a href="#challenge" onclick="closeMenu()">CHALLENGE</a>
+
+<div class="menu-footer">© PHUNAEIEI 2026</div>
 
 </div>
 
@@ -344,7 +384,7 @@ margin-top:40px;
 
 </div>
 
-<!-- VIDEOS (ไม่หาย) -->
+<!-- VIDEOS (ครบไม่หาย) -->
 <h2 class="section-title">LATEST VIDEOS</h2>
 
 <div class="slider">
@@ -367,7 +407,7 @@ margin-top:40px;
 
 </div>
 
-<!-- CHALLENGE (ไม่หาย) -->
+<!-- CHALLENGE (ครบไม่หาย) -->
 <div class="challenge">
 <h2>7 DAYS STREAM</h2>
 <div class="bar"><div class="progress"></div></div>
@@ -379,7 +419,7 @@ margin-top:40px;
 
 <script>
 
-/* MENU OPEN/CLOSE + X */
+/* MENU */
 function toggleMenu(){
 
 const menu = document.getElementById("sideMenu");
@@ -398,11 +438,9 @@ btn.innerHTML = "☰";
 }
 
 function closeMenu(){
-
 document.getElementById("sideMenu").classList.remove("active");
 document.getElementById("overlay").classList.remove("active");
 document.getElementById("menuBtn").innerHTML = "☰";
-
 }
 
 /* FOLLOWERS */
