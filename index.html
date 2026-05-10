@@ -25,7 +25,7 @@ font-family:'Poppins',sans-serif;
 overflow-x:hidden;
 }
 
-/* 🌌 STAR */
+/* 🌌 STARS */
 canvas{
 position:fixed;
 top:0;
@@ -41,7 +41,7 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-padding:10px 20px;
+padding:10px 15px;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -58,28 +58,26 @@ gap:10px;
 }
 
 .logo-p{
-width:40px;
-height:40px;
+width:38px;
+height:38px;
 display:flex;
 align-items:center;
 justify-content:center;
 border-radius:10px;
 border:2px solid #8b2cff;
-box-shadow:0 0 12px #8b2cff;
-font-family:'Orbitron';
-font-size:18px;
+box-shadow:0 0 10px #8b2cff;
 background:#140022;
-color:#fff;
+font-family:'Orbitron';
+font-size:16px;
 }
 
 /* ☰ BUTTON */
 .menu-toggle{
-font-size:30px;
+font-size:28px;
 cursor:pointer;
-z-index:10001;
-transition:0.2s ease;
 user-select:none;
 text-shadow:0 0 10px #8b2cff;
+transition:0.2s;
 }
 
 .menu-toggle:hover{
@@ -118,7 +116,7 @@ flex-direction:column;
 gap:12px;
 transition:0.3s ease;
 z-index:9999;
-box-shadow:-15px 0 40px rgba(139,44,255,0.25);
+box-shadow:-10px 0 40px rgba(139,44,255,0.25);
 }
 
 .side-menu.active{
@@ -132,7 +130,6 @@ padding:10px;
 background:#140022;
 border-radius:10px;
 border:1px solid #8b2cff;
-transition:0.2s;
 }
 
 .side-menu a:hover{
@@ -169,27 +166,31 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
+padding:0 15px;
+}
+
+/* 🔥 FIX ชื่อไม่ล้น */
+.hero h2{
+font-size:clamp(26px,8vw,72px);
+font-family:'Orbitron';
+color:#f2d4ff;
+text-shadow:0 0 10px #8b2cff;
+line-height:1.1;
+word-break:break-word;
 }
 
 .logo-big{
-width:90px;
-height:90px;
+width:80px;
+height:80px;
 display:flex;
 align-items:center;
 justify-content:center;
 border-radius:20px;
-font-size:40px;
+font-size:34px;
 font-family:'Orbitron';
 background:#140022;
 border:2px solid #8b2cff;
 box-shadow:0 0 25px #8b2cff;
-}
-
-.hero h2{
-font-size:90px;
-font-family:'Orbitron';
-color:#f2d4ff;
-text-shadow:0 0 15px #8b2cff;
 }
 
 /* LIVE */
@@ -199,7 +200,6 @@ align-items:center;
 justify-content:center;
 gap:8px;
 margin-bottom:10px;
-width:100%;
 }
 
 .live-dot{
@@ -222,64 +222,66 @@ color:red;
 font-family:'Orbitron';
 }
 
-/* STATS */
+/* SECTION */
 .section-title{
 text-align:center;
-margin:60px 0 20px;
+margin:50px 0 15px;
 font-family:'Orbitron';
+font-size:clamp(18px,4vw,28px);
 }
 
+/* STATS */
 .stats{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-padding:20px;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:12px;
+padding:15px;
 }
 
 .stat-box{
 background:#0d0018;
 border:1px solid #8b2cff;
-padding:25px;
-border-radius:20px;
+padding:18px;
+border-radius:16px;
 text-align:center;
 }
 
 .stat-box p{
-font-size:38px;
+font-size:28px;
 font-family:'Orbitron';
 }
 
 /* VIDEOS */
 .slider{
 display:flex;
-gap:20px;
+gap:12px;
 overflow-x:auto;
-padding:20px;
+padding:15px;
 }
 
 .video-card{
-min-width:280px;
+min-width:220px;
 background:#0d0018;
 border:1px solid #8b2cff;
-border-radius:20px;
+border-radius:16px;
 overflow:hidden;
 }
 
 .video-card img{
 width:100%;
-height:180px;
+height:160px;
 object-fit:cover;
 }
 
 .video-content{
-padding:15px;
+padding:12px;
 }
 
 .watch-btn{
 display:inline-block;
 margin-top:10px;
 background:#8b2cff;
-padding:10px 14px;
+padding:8px 12px;
 border-radius:10px;
 color:white;
 text-decoration:none;
@@ -287,20 +289,20 @@ text-decoration:none;
 
 /* CHALLENGE */
 .challenge{
-margin:25px;
-padding:30px;
+margin:15px;
+padding:20px;
 background:#0d0018;
 border:1px solid #8b2cff;
-border-radius:20px;
+border-radius:16px;
 text-align:center;
 }
 
 .bar{
-height:20px;
+height:18px;
 background:#2a1240;
 border-radius:20px;
 overflow:hidden;
-margin-top:15px;
+margin-top:10px;
 }
 
 .progress{
@@ -312,9 +314,9 @@ background:#8b2cff;
 /* FOOTER */
 footer{
 text-align:center;
-padding:40px;
+padding:30px;
 border-top:1px solid #8b2cff;
-margin-top:40px;
+margin-top:30px;
 }
 
 </style>
@@ -384,7 +386,7 @@ margin-top:40px;
 
 </div>
 
-<!-- VIDEOS (ครบไม่หาย) -->
+<!-- VIDEOS -->
 <h2 class="section-title">LATEST VIDEOS</h2>
 
 <div class="slider">
@@ -407,7 +409,7 @@ margin-top:40px;
 
 </div>
 
-<!-- CHALLENGE (ครบไม่หาย) -->
+<!-- CHALLENGE -->
 <div class="challenge">
 <h2>7 DAYS STREAM</h2>
 <div class="bar"><div class="progress"></div></div>
@@ -429,11 +431,7 @@ const btn = document.getElementById("menuBtn");
 menu.classList.toggle("active");
 overlay.classList.toggle("active");
 
-if(menu.classList.contains("active")){
-btn.innerHTML = "✕";
-}else{
-btn.innerHTML = "☰";
-}
+btn.innerHTML = menu.classList.contains("active") ? "✕" : "☰";
 
 }
 
@@ -443,17 +441,17 @@ document.getElementById("overlay").classList.remove("active");
 document.getElementById("menuBtn").innerHTML = "☰";
 }
 
-/* FOLLOWERS */
-let base = 173;
-let followers = 173;
+/* FOLLOWERS LIVE */
+let base = 175;
+let followers = 175;
 
 function liveFollowers(){
 
 let change = Math.floor(Math.random()*5)-2;
 followers += change;
 
-if(followers > base + 3) followers = base + 3;
-if(followers < base - 3) followers = base - 3;
+if(followers > base + 3) followers = base + 1;
+if(followers < base - 1) followers = base - 3;
 
 document.getElementById("followers").innerText = followers;
 
@@ -483,28 +481,3 @@ d:Math.random()*1
 function draw(){
 ctx.clearRect(0,0,canvas.width,canvas.height);
 ctx.fillStyle="white";
-
-for(let s of stars){
-ctx.beginPath();
-ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-ctx.fill();
-
-s.y += s.d;
-
-if(s.y > canvas.height){
-s.y = 0;
-s.x = Math.random()*canvas.width;
-}
-}
-}
-
-function animate(){
-draw();
-requestAnimationFrame(animate);
-}
-animate();
-
-</script>
-
-</body>
-</html>
