@@ -25,17 +25,27 @@ font-family:'Poppins',sans-serif;
 overflow-x:hidden;
 }
 
-/* ================= NAVBAR (เล็กลงแล้ว) ================= */
+/* 🌌 STAR BACKGROUND */
+canvas{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+/* NAVBAR */
 .navbar{
 position:fixed;
 top:0;
 left:0;
 width:100%;
-padding:10px 20px; /* 🔥 เล็กลง */
+padding:10px 20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(0,0,0,0.75);
+background:rgba(0,0,0,0.6);
 backdrop-filter:blur(10px);
 border-bottom:1px solid #8b2cff;
 z-index:9999;
@@ -47,7 +57,6 @@ align-items:center;
 gap:10px;
 }
 
-/* 🔥 โลโก้เล็กลง */
 .logo-p{
 width:40px;
 height:40px;
@@ -59,15 +68,13 @@ border:2px solid #8b2cff;
 box-shadow:0 0 12px #8b2cff;
 font-family:'Orbitron';
 font-size:18px;
-color:#f2d4ff;
 background:#140022;
+color:#fff;
 }
 
-/* 🔥 ตัวหนังสือเล็กลง */
 .nav-left h1{
 font-family:'Orbitron';
 font-size:18px;
-color:#f2d4ff;
 }
 
 .menu{
@@ -82,20 +89,14 @@ padding:6px 10px;
 border-radius:8px;
 background:#140022;
 border:1px solid #8b2cff;
-transition:0.3s;
 font-size:13px;
 }
 
-.menu a:hover{
-background:#8b2cff;
-}
-
-/* 🔥 3 ขีดเล็กลง */
+/* 3 ขีด */
 .menu-toggle{
 font-size:24px;
-cursor:pointer;
-color:#f2d4ff;
 display:none;
+cursor:pointer;
 }
 
 /* mobile menu */
@@ -110,18 +111,17 @@ padding:10px;
 display:none;
 flex-direction:column;
 gap:8px;
-z-index:9999;
 }
 
 .mobile-menu a{
 color:white;
 text-decoration:none;
-padding:8px 12px;
-border-radius:8px;
+padding:8px;
 background:#140022;
+border-radius:8px;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 .hero{
 height:100vh;
 display:flex;
@@ -129,10 +129,6 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-background:
-linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
-url('https://images.unsplash.com/photo-1511512578047-dfb367046420');
-background-size:cover;
 }
 
 .glow-wrap{
@@ -148,9 +144,8 @@ display:flex;
 align-items:center;
 justify-content:center;
 border-radius:20px;
-font-family:'Orbitron';
 font-size:40px;
-color:#f2d4ff;
+font-family:'Orbitron';
 background:#140022;
 border:2px solid #8b2cff;
 position:relative;
@@ -172,25 +167,23 @@ z-index:1;
 }
 
 @keyframes spin{
-0%{transform:rotate(0deg);}
+0%{transform:rotate(0);}
 100%{transform:rotate(360deg);}
 }
 
 .hero h2{
-font-size:70px;
+font-size:60px;
 font-family:'Orbitron';
-color:#f2d4ff;
 }
 
-/* ================= SECTION ================= */
+/* SECTION */
 .section-title{
 text-align:center;
 margin:60px 0 20px;
 font-family:'Orbitron';
-color:#f2d4ff;
 }
 
-/* ================= STATS ================= */
+/* STATS */
 .stats{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -201,18 +194,17 @@ padding:20px;
 .stat-box{
 background:#0d0018;
 border:1px solid #8b2cff;
-padding:30px;
+padding:25px;
 border-radius:20px;
 text-align:center;
 }
 
 .stat-box p{
-font-size:40px;
+font-size:38px;
 font-family:'Orbitron';
-color:#d9b3ff;
 }
 
-/* ================= VIDEOS ================= */
+/* VIDEOS */
 .slider{
 display:flex;
 gap:20px;
@@ -221,7 +213,7 @@ padding:20px;
 }
 
 .video-card{
-min-width:300px;
+min-width:280px;
 background:#0d0018;
 border:1px solid #8b2cff;
 border-radius:20px;
@@ -230,7 +222,7 @@ overflow:hidden;
 
 .video-card img{
 width:100%;
-height:200px;
+height:180px;
 object-fit:cover;
 }
 
@@ -242,28 +234,28 @@ padding:15px;
 display:inline-block;
 margin-top:10px;
 background:#8b2cff;
-padding:10px 15px;
+padding:10px 14px;
 border-radius:10px;
 color:white;
 text-decoration:none;
 }
 
-/* ================= CHALLENGE ================= */
+/* CHALLENGE */
 .challenge{
-margin:30px;
-padding:40px;
+margin:25px;
+padding:30px;
 background:#0d0018;
 border:1px solid #8b2cff;
-border-radius:25px;
+border-radius:20px;
 text-align:center;
 }
 
 .bar{
-height:25px;
+height:20px;
 background:#2a1240;
 border-radius:20px;
-margin-top:20px;
 overflow:hidden;
+margin-top:15px;
 }
 
 .progress{
@@ -272,21 +264,21 @@ height:100%;
 background:#8b2cff;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer{
 text-align:center;
 padding:40px;
 border-top:1px solid #8b2cff;
-margin-top:50px;
+margin-top:40px;
 }
 
-/* ================= MOBILE ================= */
-@media (max-width:768px){
+/* MOBILE */
+@media(max-width:768px){
 
 .menu{display:none;}
 .menu-toggle{display:block;}
 
-.hero h2{font-size:40px;}
+.hero h2{font-size:38px;}
 
 .logo-big{
 width:70px;
@@ -300,25 +292,22 @@ grid-template-columns:1fr;
 
 }
 
-/* mobile menu open */
-.show{
-display:flex !important;
-}
+.show{display:flex !important;}
 
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- 🌌 STAR CANVAS -->
+<canvas id="stars"></canvas>
+
+<!-- NAV -->
 <div class="navbar">
 
 <div class="nav-left">
-
 <div class="logo-p">P</div>
-
 <h1>PHUNAEIEI</h1>
-
 </div>
 
 <div class="menu">
@@ -343,7 +332,7 @@ display:flex !important;
 <section class="hero" id="home">
 
 <div class="glow-wrap">
-  <div class="logo-big">P</div>
+<div class="logo-big">P</div>
 </div>
 
 <h2>PHUNAEIEI</h2>
@@ -354,11 +343,9 @@ display:flex !important;
 <h2 class="section-title" id="stats">STATS</h2>
 
 <div class="stats">
-
 <div class="stat-box"><h3>FOLLOWERS</h3><p>120K</p></div>
 <div class="stat-box"><h3>VIDEOS</h3><p>157</p></div>
 <div class="stat-box"><h3>VIEWS</h3><p>9.4M</p></div>
-
 </div>
 
 <!-- VIDEOS -->
@@ -382,43 +369,68 @@ display:flex !important;
 </div>
 </div>
 
-<div class="video-card">
-<img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8">
-<div class="video-content">
-<h3>PVP PACK</h3>
-<a class="watch-btn">WATCH</a>
-</div>
-</div>
-
-<div class="video-card">
-<img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f">
-<div class="video-content">
-<h3>LIVE CHALLENGE</h3>
-<a class="watch-btn">WATCH</a>
-</div>
-</div>
-
 </div>
 
 <!-- CHALLENGE -->
-<div class="challenge" id="challenge">
-
-<h2>7 DAYS STREAMING</h2>
-<p>Goal 100K Followers</p>
-
+<div class="challenge">
+<h2>7 DAYS STREAM</h2>
 <div class="bar"><div class="progress"></div></div>
-
 </div>
 
-<!-- FOOTER -->
 <footer>
 <p>@phunaeiei3</p>
 </footer>
 
 <script>
+
+/* MENU */
 function toggleMenu(){
 document.getElementById("mobileMenu").classList.toggle("show");
 }
+
+/* 🌌 STAR ANIMATION */
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let stars = [];
+
+for(let i=0;i<120;i++){
+stars.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+d:Math.random()*1
+});
+}
+
+function drawStars(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="white";
+
+for(let i=0;i<stars.length;i++){
+let s = stars[i];
+ctx.beginPath();
+ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+ctx.fill();
+
+s.y += s.d;
+
+if(s.y > canvas.height){
+s.y = 0;
+s.x = Math.random()*canvas.width;
+}
+}
+}
+
+function animate(){
+drawStars();
+requestAnimationFrame(animate);
+}
+animate();
+
 </script>
 
 </body>
