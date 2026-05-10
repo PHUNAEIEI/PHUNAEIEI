@@ -25,7 +25,7 @@ font-family:'Poppins',sans-serif;
 overflow-x:hidden;
 }
 
-/* STAR */
+/* 🌌 STAR */
 canvas{
 position:fixed;
 top:0;
@@ -77,9 +77,27 @@ color:#fff;
 font-size:28px;
 cursor:pointer;
 z-index:10001;
+transition:0.2s;
+user-select:none;
 }
 
-/* SLIDE MENU */
+/* OVERLAY */
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+display:none;
+z-index:9998;
+}
+
+.overlay.active{
+display:block;
+}
+
+/* SIDE MENU */
 .side-menu{
 position:fixed;
 top:0;
@@ -93,7 +111,7 @@ display:flex;
 flex-direction:column;
 gap:12px;
 transition:0.3s ease;
-z-index:10000;
+z-index:9999;
 }
 
 .side-menu.active{
@@ -107,26 +125,6 @@ padding:10px;
 background:#140022;
 border-radius:8px;
 border:1px solid #8b2cff;
-}
-
-/* 🌟 HEADER MENU DECOR */
-.menu-header{
-font-family:'Orbitron';
-font-size:16px;
-color:#d9b3ff;
-text-align:center;
-margin-bottom:10px;
-border-bottom:1px solid #8b2cff;
-padding-bottom:10px;
-}
-
-.menu-footer{
-margin-top:auto;
-text-align:center;
-font-size:12px;
-opacity:0.7;
-border-top:1px solid #8b2cff;
-padding-top:10px;
 }
 
 /* HERO */
@@ -150,15 +148,12 @@ font-size:40px;
 font-family:'Orbitron';
 background:#140022;
 border:2px solid #8b2cff;
-box-shadow:0 0 25px #8b2cff;
+box-shadow:0 0 20px #8b2cff;
 }
 
-/* 🔥 กลับเป็นตัวใหญ่แบบเดิม */
 .hero h2{
-font-size:90px;
+font-size:60px;
 font-family:'Orbitron';
-color:#f2d4ff;
-text-shadow:0 0 15px #8b2cff;
 }
 
 /* LIVE */
@@ -218,7 +213,7 @@ font-size:38px;
 font-family:'Orbitron';
 }
 
-/* SLIDER */
+/* VIDEOS */
 .slider{
 display:flex;
 gap:20px;
@@ -234,6 +229,26 @@ border-radius:20px;
 overflow:hidden;
 }
 
+.video-card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.video-content{
+padding:15px;
+}
+
+.watch-btn{
+display:inline-block;
+margin-top:10px;
+background:#8b2cff;
+padding:10px 14px;
+border-radius:10px;
+color:white;
+text-decoration:none;
+}
+
 /* CHALLENGE */
 .challenge{
 margin:25px;
@@ -242,6 +257,20 @@ background:#0d0018;
 border:1px solid #8b2cff;
 border-radius:20px;
 text-align:center;
+}
+
+.bar{
+height:20px;
+background:#2a1240;
+border-radius:20px;
+overflow:hidden;
+margin-top:15px;
+}
+
+.progress{
+width:72%;
+height:100%;
+background:#8b2cff;
 }
 
 /* FOOTER */
@@ -267,23 +296,20 @@ margin-top:40px;
 <h1>PHUNAEIEI</h1>
 </div>
 
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+<div id="menuBtn" class="menu-toggle" onclick="toggleMenu()">☰</div>
 
 </div>
 
-<!-- SLIDE MENU -->
+<!-- OVERLAY -->
+<div id="overlay" class="overlay" onclick="closeMenu()"></div>
+
+<!-- SIDE MENU -->
 <div id="sideMenu" class="side-menu">
 
-<div class="menu-header">MENU</div>
-
-<a href="#home">HOME</a>
-<a href="#stats">STATS</a>
-<a href="#videos">VIDEOS</a>
-<a href="#challenge">CHALLENGE</a>
-
-<div class="menu-footer">
-© PHUNAEIEI 2026
-</div>
+<a href="#home" onclick="closeMenu()">HOME</a>
+<a href="#stats" onclick="closeMenu()">STATS</a>
+<a href="#videos" onclick="closeMenu()">VIDEOS</a>
+<a href="#challenge" onclick="closeMenu()">CHALLENGE</a>
 
 </div>
 
@@ -318,9 +344,33 @@ margin-top:40px;
 
 </div>
 
-<!-- CHALLENGE -->
+<!-- VIDEOS (ไม่หาย) -->
+<h2 class="section-title">LATEST VIDEOS</h2>
+
+<div class="slider">
+
+<div class="video-card">
+<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e">
+<div class="video-content">
+<h3>MOD 1</h3>
+<a class="watch-btn">WATCH</a>
+</div>
+</div>
+
+<div class="video-card">
+<img src="https://images.unsplash.com/photo-1511512578047-dfb367046420">
+<div class="video-content">
+<h3>MOD 2</h3>
+<a class="watch-btn">WATCH</a>
+</div>
+</div>
+
+</div>
+
+<!-- CHALLENGE (ไม่หาย) -->
 <div class="challenge">
 <h2>7 DAYS STREAM</h2>
+<div class="bar"><div class="progress"></div></div>
 </div>
 
 <footer>
@@ -329,9 +379,30 @@ margin-top:40px;
 
 <script>
 
-/* MENU */
+/* MENU OPEN/CLOSE + X */
 function toggleMenu(){
-document.getElementById("sideMenu").classList.toggle("active");
+
+const menu = document.getElementById("sideMenu");
+const overlay = document.getElementById("overlay");
+const btn = document.getElementById("menuBtn");
+
+menu.classList.toggle("active");
+overlay.classList.toggle("active");
+
+if(menu.classList.contains("active")){
+btn.innerHTML = "✕";
+}else{
+btn.innerHTML = "☰";
+}
+
+}
+
+function closeMenu(){
+
+document.getElementById("sideMenu").classList.remove("active");
+document.getElementById("overlay").classList.remove("active");
+document.getElementById("menuBtn").innerHTML = "☰";
+
 }
 
 /* FOLLOWERS */
@@ -339,6 +410,7 @@ let base = 173;
 let followers = 173;
 
 function liveFollowers(){
+
 let change = Math.floor(Math.random()*5)-2;
 followers += change;
 
