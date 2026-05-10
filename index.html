@@ -23,7 +23,7 @@ font-family:'Poppins',sans-serif;
 overflow-x:hidden;
 }
 
-/* STAR */
+/* STAR BACKGROUND */
 #stars{
 position:fixed;
 top:0;
@@ -70,8 +70,8 @@ font-family:Orbitron;
 .menu-toggle{
 font-size:30px;
 cursor:pointer;
-z-index:99999;
 position:relative;
+z-index:10000;
 }
 
 /* OVERLAY */
@@ -142,11 +142,12 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
+padding:0 15px;
 }
 
 .logo-big{
-width:80px;
-height:80px;
+width:85px;
+height:85px;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -163,6 +164,15 @@ font-family:Orbitron;
 font-size:clamp(28px,6vw,60px);
 }
 
+/* MID TEXT */
+.mid-text{
+margin-top:10px;
+font-size:12px;
+letter-spacing:3px;
+opacity:0.6;
+}
+
+/* LIVE */
 .live-card{
 margin-top:15px;
 padding:8px 14px;
@@ -249,7 +259,11 @@ margin-top:20px;
 
 <h2>PHUNAEIEI</h2>
 
-<div class="live-card">🔥 LIVE • 173 Followers</div>
+<div class="mid-text">CREATOR • MODS • LIVE STREAM</div>
+
+<div class="live-card">
+🔥 LIVE • <span id="followers">173</span> Followers
+</div>
 
 </section>
 
@@ -260,17 +274,17 @@ margin-top:20px;
 
 <div class="stat-box">
 <h3>FOLLOWERS</h3>
-<p>173</p>
+<p id="followers2">173</p>
 </div>
 
 <div class="stat-box">
 <h3>VIDEOS</h3>
-<p>0</p>
+<p>6</p>
 </div>
 
 <div class="stat-box">
 <h3>VIEWS</h3>
-<p>0</p>
+<p>10K</p>
 </div>
 
 </div>
@@ -296,6 +310,21 @@ menu.classList.remove("active");
 overlay.classList.remove("active");
 }
 
+/* FOLLOWERS LIVE */
+let base=173;
+let f=173;
+
+setInterval(()=>{
+f += Math.floor(Math.random()*3)-1;
+
+if(f > base + 6) f = base + 6;
+if(f < base - 6) f = base - 6;
+
+document.getElementById("followers").innerText=f;
+document.getElementById("followers2").innerText=f;
+
+},900);
+
 /* STAR */
 const c=document.getElementById("stars");
 const x=c.getContext("2d");
@@ -303,7 +332,7 @@ c.width=innerWidth;
 c.height=innerHeight;
 
 let s=[];
-for(let i=0;i<100;i++){
+for(let i=0;i<120;i++){
 s.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.5});
 }
 
