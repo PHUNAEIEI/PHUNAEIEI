@@ -10,7 +10,7 @@
 
 <style>
 
-/* ================= RESET ================= */
+/* RESET */
 *{
 margin:0;
 padding:0;
@@ -68,6 +68,7 @@ font-size:24px;
 color:#f2d4ff;
 }
 
+/* desktop menu */
 .menu{
 display:flex;
 gap:12px;
@@ -86,6 +87,37 @@ font-size:14px;
 
 .menu a:hover{
 background:#8b2cff;
+}
+
+/* 3 ขีด */
+.menu-toggle{
+font-size:30px;
+cursor:pointer;
+color:#f2d4ff;
+display:none;
+}
+
+/* mobile menu */
+.mobile-menu{
+position:absolute;
+top:70px;
+right:20px;
+background:#0d0018;
+border:1px solid #8b2cff;
+border-radius:15px;
+padding:10px;
+display:none;
+flex-direction:column;
+gap:10px;
+z-index:9999;
+}
+
+.mobile-menu a{
+color:white;
+text-decoration:none;
+padding:10px 14px;
+border-radius:10px;
+background:#140022;
 }
 
 /* ================= HERO ================= */
@@ -253,29 +285,13 @@ border-top:1px solid #8b2cff;
 margin-top:50px;
 }
 
-/* ================= 📱 MOBILE ================= */
-@media (max-width: 768px){
+/* ================= MOBILE ================= */
+@media (max-width:768px){
 
-.navbar{
-flex-direction:column;
-gap:10px;
-padding:12px 15px;
-}
+.menu{display:none;}
+.menu-toggle{display:block;}
 
-.menu{
-flex-wrap:wrap;
-justify-content:center;
-gap:8px;
-}
-
-.menu a{
-font-size:12px;
-padding:6px 10px;
-}
-
-.hero h2{
-font-size:40px;
-}
+.hero h2{font-size:40px;}
 
 .logo-big{
 width:70px;
@@ -285,31 +301,13 @@ font-size:28px;
 
 .stats{
 grid-template-columns:1fr;
-padding:10px;
 }
 
-.stat-box{
-padding:20px;
 }
 
-.stat-box p{
-font-size:32px;
-}
-
-.slider{
-gap:12px;
-padding:10px;
-}
-
-.video-card{
-min-width:260px;
-}
-
-.challenge{
-margin:15px;
-padding:25px;
-}
-
+/* mobile menu fix */
+.show{
+display:flex !important;
 }
 
 </style>
@@ -328,11 +326,23 @@ padding:25px;
 
 </div>
 
+<!-- desktop menu -->
 <div class="menu">
 <a href="#home">HOME</a>
 <a href="#stats">STATS</a>
 <a href="#videos">VIDEOS</a>
 <a href="#challenge">CHALLENGE</a>
+</div>
+
+<!-- 3 ขีด -->
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<!-- mobile menu -->
+<div id="mobileMenu" class="mobile-menu">
+<a href="#home" onclick="toggleMenu()">HOME</a>
+<a href="#stats" onclick="toggleMenu()">STATS</a>
+<a href="#videos" onclick="toggleMenu()">VIDEOS</a>
+<a href="#challenge" onclick="toggleMenu()">CHALLENGE</a>
 </div>
 
 </div>
@@ -399,7 +409,7 @@ padding:25px;
 </div>
 
 <!-- CHALLENGE -->
-<div class="challenge">
+<div class="challenge" id="challenge">
 
 <h2>7 DAYS STREAMING</h2>
 <p>Goal 100K Followers</p>
@@ -412,6 +422,13 @@ padding:25px;
 <footer>
 <p>@phunaeiei3</p>
 </footer>
+
+<!-- JS -->
+<script>
+function toggleMenu(){
+document.getElementById("mobileMenu").classList.toggle("show");
+}
+</script>
 
 </body>
 </html>
